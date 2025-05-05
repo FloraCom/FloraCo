@@ -53,13 +53,14 @@ aside{
 	right: -100%;
 	flex-direction: column;
 	z-index: 2;
-	display: flex;
+	display: none;
 	background-color: white;
 	border: 1px solid var(--primary-c);
 	transition: all ease-in 0.1s;
 }
 
 .asideOpen{
+	display: flex;
 	right: 0;
 }
 
