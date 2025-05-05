@@ -1,0 +1,590 @@
+
+:root {
+
+	--background-c: #E9FFEE;
+	--primary-c:  #023918;
+	--secondary-c:  #F99826;
+
+}
+
+
+
+
+html, body {
+
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	overflow-x:hidden;
+
+}
+
+nav {
+	width:100%;
+	height: 70px;
+	padding:0 10px;
+	background: var(--background-c);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position:sticky;
+	z-index:1;
+}
+
+#logo{
+	height:80%;
+	cursor: pointer;
+}
+
+.nav_list {
+
+	display: flex;
+	list-style: none;
+	gap:15px;
+	
+}
+
+aside{
+	height: 100%;
+	width: 60%;
+	position: absolute;
+	top: 0;
+	right: -100%;
+	flex-direction: column;
+	z-index: 2;
+	display: flex;
+	background-color: white;
+	border: 1px solid var(--primary-c);
+	transition: all ease-in 0.1s;
+}
+
+.asideOpen{
+	right: 0;
+}
+
+
+#close{
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 20px;
+	font-size: 1.5rem;
+	color: var(--secondary-c);
+}
+
+.aside_list {
+
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	gap:15px;
+	padding-top: 30px;
+	
+}
+
+.nav_li a{
+	text-decoration: none;
+	color: #023918;
+	font-weight: 600;	
+	font-size:1rem;
+	font-family: 'Poppins', sans-serif;
+	text-decoration-color: var(--secondary-c);
+	text-decoration-width: 200px;
+
+}
+
+.nav_li a:hover{
+	text-decoration: underline;
+	transition-delay: 3s;
+}
+
+.selected{
+	text-decoration: underline;
+	text-decoration-thickness: 5px;
+}
+
+.nav_right {
+	display: flex;
+	gap:25px;
+	font-size:1.8rem;
+	padding: 0 40px;
+	color: var(--secondary-c);
+	cursor: pointer;
+}
+
+.nav_right a{
+	text-decoration: none;
+	color: var(--secondary-c);
+}
+
+#menu {
+	display:none;
+	font-size: 1.3rem;
+}
+
+.cover{
+	height: auto;
+	background-color: var(--background-c);
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+}
+
+#cov{
+	width: 80%;
+	padding: 0 10% 20px 0;
+}
+
+#cov img{
+	height: 100%;
+	width: 100%;
+	transition: all ease-in 0.2s;
+
+}
+
+#cov img:hover{
+	transform: scale(1.05);
+	-webkit-filter: drop-shadow(2px 2px 5px #111);
+	filter: drop-shadow(2px 2px 5px #111);
+}
+
+.text_over{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+	padding-left: 10%;
+	padding-bottom: 10%;
+}
+
+.text_over h2{
+	font-size: 3.5rem;
+	color: var(--primary-c);
+	pointer-events: none;
+	text-align: center;
+	margin: 0;
+	-webkit-filter: drop-shadow(1px 1px 1px #111);
+	filter: drop-shadow(1px 1px 1px #111);
+}
+
+.text_over p{
+	font-size: 1.2rem;
+	color: gray;
+	pointer-events: none;
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	padding-bottom: 10px;
+}
+
+.text_over button{
+	color: var(--background-c);
+	background-color: var(--secondary-c);
+	border: none;
+	border-radius: 50px;
+	padding: 12px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all ease-in 0.2s;
+}
+
+.text_over button:hover{
+	transform: scale(1.1);
+}
+
+.features{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px;
+}
+
+.feat{
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.feat i{
+	font-size: 2rem;
+	color: var(--secondary-c);
+}
+
+.featText{
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	padding: 15px 0;
+	gap: 10px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.featText h2{
+	height: auto;
+	padding: 0;
+	margin: 0;
+	color: var(--primary-c);
+}
+
+.featText p{
+	padding: 0;
+	margin: 0;
+	color: gray;
+}
+
+.heading {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	color: var(--secondary-c);
+	margin: 4%;
+	pointer-events: none;
+}
+
+.collections{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	align-items: center;
+	justify-content: center;
+	gap: 2%;
+	padding: 10px 10%;
+	margin: 20px 0;
+}
+
+.collection{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	border: 1px solid lightgrey;
+	padding: 0;
+}
+
+.collImg{
+	width: 100%;
+	overflow: hidden;
+	aspect-ratio: 1/1;
+	background-color: var(--background-c);
+}
+
+.collImg img{
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	transition: all ease-in 0.2s;
+}
+
+#indoor img, #bonsai img{
+	-webkit-filter: drop-shadow(2px 2px 5px #111);
+	filter: drop-shadow(2px 2px 5px #111);
+}
+
+.collImg img:hover{
+	transform: scale(1.05);
+}
+
+.collText{
+	height: auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin: 15px 15px 5px 15px;
+	font-family: 'Poppins', sans-serif;
+	pointer-events: none;
+}
+
+.collText h2{
+	margin: 0;
+	padding: 0;
+	font-size: 1.45rem;
+	color: var(--primary-c);
+}
+
+.collText p{
+	margin: 0;
+	padding: 0;
+	font-size: 0.9rem;
+	color: gray;
+}
+
+.shippingDetail{
+	width: 100%;
+	aspect-ratio: 3/1;
+	overflow: hidden;
+	margin: 30px 0;
+}
+
+.shipping{
+	width: 100%;
+	height: 100%;
+	margin-top: 15px;
+	object-fit: cover;
+}
+
+#shipp{
+	aspect-ratio: 6/1;
+}
+
+.gallery{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	align-items: center;
+	justify-content: center;
+	gap: 2%;
+	padding: 10px 10%;
+	margin: 20px 0;
+}
+
+.galImg{
+	width: 100%;
+	overflow: hidden;
+	aspect-ratio: 1/1;
+	background-color: var(--background-c);
+}
+
+.galImg img{
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	transition: all ease-in 0.2s;
+}
+
+footer{
+	background-color: black;
+	font-family: 'Poppins', sans-serif;
+	padding: 25px 10px;
+	display: flex;
+	justify-content: space-around;
+	gap: 10px;
+}
+
+.social{
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: start;
+	justify-content: start;
+}
+
+.social h4{
+	margin: 0;
+	padding: 0;
+	pointer-events: none;
+	color: white;
+	font-weight: 500;
+}
+
+.social a{
+	font-weight: 600;
+}
+
+.social a i{
+	color: white;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.profiles{
+	display: flex;
+	gap: 15px;
+	justify-content: start;
+	padding: 0;
+	margin: 0;
+}
+
+.profile a{
+	text-decoration: none;
+	color: gray;
+	font-size: 1.3rem;
+}
+
+.contact{
+	padding: 10px 0;
+	gap: 20px;
+}
+
+.contact h4{
+	margin: 0;
+	padding: 0;
+	pointer-events: none;
+}
+
+.contact p{
+	font-weight: 600;
+	color: lightgrey;
+	font-size: 0.9rem;
+	margin: 0;
+	padding: 0;
+}
+
+.contact a{
+	color: gray;
+	font-size: 1rem;
+}
+
+.built{
+	padding: 25px;
+}
+
+.built h1{
+	font-family: "Bowlby One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2.5rem;
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+.builtText{
+	color: lightgrey;
+	font-weight: 600;
+	display: flex;
+	gap: 5px;
+	align-items: center;
+}
+
+.builtText i{
+	color: red;
+	font-size: 1.5rem;
+}
+
+
+
+@media screen and (max-width: 800px){
+
+	.nav_list, #user, #cart{
+		display: none;
+	}
+
+	#menu{
+		display: block;
+	}
+
+	.text_over h2{
+		font-size: 1.5rem;
+		margin: 0;
+	}
+
+	.text_over p{
+		font-size: 0.9rem;
+	}
+
+	.text_over button{
+		font-size: 0.8rem;
+		padding: 10px;
+	}
+
+	.features{
+		gap: 0;
+		overflow-x: scroll;
+	}
+
+	.feat i{
+		font-size: 1.2rem;
+	}
+
+	.featText{
+		gap: 0;
+	}
+
+	.featText h2{
+		width: 60px;
+		font-size: 1rem;
+	}
+
+	.featText p{
+		width: 60px;
+		font-size: 0.6rem;
+	}
+
+	.collections{
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.collText{
+		gap: 5px;
+	}
+
+	.collText h2{
+		font-size: 1rem;
+	}
+	.collText p{
+		font-size: 0.7rem;
+	}
+
+	.gallery{
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	footer{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+
+@media screen and (max-width: 400px){
+
+	#logo{
+		height: 50%;
+	}
+
+	.text_over h2{
+		font-size: 1rem;
+	}
+
+	.text_over p{
+		font-size: 0.8rem;
+	}
+
+	.features{
+		display: flex;
+		gap: 20px;
+		overflow-x: scroll;
+		justify-content: start;
+	}
+
+	.feat{
+		margin-right: 10px;
+	}
+
+	.heading{
+		font-size: 1.5rem;
+		margin: 25px;
+	}
+
+	.collections{
+		grid-template-columns: repeat(1, 1fr);
+		gap: 20px;
+	}
+
+	.collection{
+		padding: 0;
+	}
+
+	.shippingDetail{
+		aspect-ratio: 3/2;
+	}
+
+	.shipping{
+		object-fit: contain;
+	}
+
+	#shipp{
+		aspect-ratio: 3/1;
+	}
+
+	.gallery{
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+}
