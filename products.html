@@ -1,0 +1,143 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>FloraCo • Home</title>
+	  	<link rel="icon" type="image/x-icon" href="./media/fc.png">
+		<link rel="stylesheet" href="./styles/products.css">
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css'>	
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+		<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+
+	</head>
+	<body>
+
+		<nav>
+			<img id="logo" src="./media/floraco.png"/>
+			<ul class="nav_list">
+				<li class="nav_li"><a href="index.html">Home</a></li>
+				<li class="nav_li selected"><a href="">Products</a></li>
+				<li class="nav_li"><a href="#">About</a></li>
+				<li class="nav_li"><a href="#">Contact</a></li>
+			</ul>
+			<div class="nav_right">
+				<a href="cart.html" id="cart"><i  class="fi fi-ss-forest"></i></a>
+				<a href="" id="user"><i id="user" class="fi fi-ss-circle-user"></i></a>
+				<i id="menu" class="fi fi-br-menu-burger"></i>
+			</div>
+		</nav>
+
+		<aside id="asideMenu">
+			<i id="close" class="fi fi-ss-cross-small"></i>
+			<ul class="aside_list">
+				<li class="nav_li"><a href="index.html">Home</a></li>
+				<li class="nav_li selected"><a href="">Products</a></li>
+				<li class="nav_li"><a href="#">About</a></li>
+				<li class="nav_li"><a href="#">Contact</a></li>
+				<li class="nav_li"><a href="cart.html">Cart</a></li>
+				<li class="nav_li"><a href="#">Profile</a></li>
+			</ul>
+		</aside>
+
+		<middle>
+
+			<div class="searchView">
+				<div class="searchBar">
+					<input id="search" list="searchList" type="search" name="" value="" placeholder="Search Plants, Seeds, Soil, Fertilizers">
+				  	<datalist id="searchList">
+					    <option value="">
+				  	</datalist>
+					<i class="fi fi-br-search" id="searchButton"></i>
+				</div>
+			</div>
+			
+			<div class="filters">
+					
+				<div class="dropdowns">
+					
+					<div class="drop">
+						<i class="fi fi-ss-category"></i>
+						<select class="choose" id="filter">
+							<option value="filter">Category</option>
+							<optgroup label="Plant">
+								<option value="">Filtegsdfgsdfgsdfgsdfr</option>
+							</optgroup>
+						</select>
+					</div>
+
+					<div class="drop">
+						<i class="fi fi-br-bars-sort"></i>
+						<select class="choose" id="sort">
+							<option>Sort</option>
+							<optgroup label="Price">
+								<option value="">High to Low</option>
+								<option value="">Low to High</option>
+							</optgroup>
+						</select>
+					</div>
+
+				</div>
+			</div>
+			
+			<div class="products">
+				<ul>
+					<li class="productCard">
+						<a href="product.html?id=rose-plant" class="cardA">
+							<div class="card">
+								<div class="cardImg">
+									<img class="cardImageView" src="./media/plcover.png">
+								</div>
+								<div class="cardText">
+									<p class="category">Plant</p>
+									<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
+									<span class="priceSpan">499.00</span>
+									<h3 class="price">350.00</h3>
+								</div>
+							</div>
+							<button>Add To Garden</button>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="error">
+				<img src="./media/desert.png" alt="">
+				<h2>No Products Found :(</h2>
+			</div>
+
+		</middle>
+
+		<div class="shippingDetail" id="shipp">
+			<img class="shipping" src="./media/banner.png"></img>
+		</div>
+
+		<footer>
+
+			<div class="built">
+				<h1>Go Green</h1>
+				<div class="builtText">Made with <i class="fi fi-ss-heart"></i> from KAKINADA</div>
+			</div>
+
+			<div class="social">	
+
+				<div class="contact">
+					<h4>Contact us: </h4>
+					<p><a href="mailto:flora.company07@gmail.com" title="">flora.company07@gmail.com</a></p>
+				</div>
+
+				<h4>Follow</h4>
+				<div class="profiles">
+					<div class="profile"><a href="" title=""><i class="fi fi-brands-facebook"></i></a></div>
+					<div class="profile"><a href="" title=""><i class="fi fi-brands-instagram"></i></a></div>
+					<div class="profile"><a href="" title=""><i class="fi fi-brands-twitter-alt-square"></i></a></div>
+					<div class="profile"><a href="" title=""><i class="fi fi-brands-google"></i></a></div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="scripts/products.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+	</html>

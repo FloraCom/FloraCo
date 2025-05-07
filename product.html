@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>product</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="product-container">
+    <div class="image-gallery">
+      <img src="jasmine.jpg" alt="Main Product Image" class="main-image" />
+      </div>
+<div class="product-details">
+      <h1>Jasmine</h1>
+      <p class="price">$199.00</p>
+      <p class="availability">Available in stock</p>
+      <p class="description">
+        Jasmine is a fragrant flowering plant belonging to the Oleaceae (olive) family. Known for its sweet and pleasant aroma, jasmine flowers are typically small, white or yellow, and bloom abundantly in warm climates. Native to tropical and subtropical regions, especially in Asia, jasmine is widely cultivated for ornamental use, essential oils, and perfumes. In many cultures, it symbolizes purity, love, and beauty, and is used in religious ceremonies, teas, and traditional medicine.
+ </p>
+<label>Size:</label>
+<div class="size-options">
+  <button type="button" class="size-btn">S</button>
+  <button type="button" class="size-btn">M</button>
+  <button type="button" class="size-btn">L</button>
+</div>
+<label>Quantity:</label>
+<div class="quantity-control">
+  <button type="button" class="qty-btn" id="decrease">-</button>
+  <input type="number" id="quantity" value="1" min="1" readonly />
+  <button type="button" class="qty-btn" id="increase">+</button>
+   <script src="script.js"></script>
+</div>
+        <button type="submit" class="add-cart">Add to Cart</button>
+
+</body>
+</html>

@@ -60,8 +60,8 @@ aside{
 }
 
 .asideOpen{
-	display: flex;
 	right: 0;
+	display: flex;
 }
 
 
@@ -117,6 +117,11 @@ aside{
 .nav_right a{
 	text-decoration: none;
 	color: var(--secondary-c);
+}
+
+
+.nav_right a:hover{
+	color: #EA8917;
 }
 
 #menu {
