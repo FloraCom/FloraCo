@@ -1,37 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>product</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>product</title>
+  <link rel="stylesheet" href="styles/product.css">
+      <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css'>  
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+
 </head>
 <body>
-<main class="product-container">
-    <div class="image-gallery">
-      <img src="jasmine.jpg" alt="Main Product Image" class="main-image" />
-      </div>
-<div class="product-details">
-      <h1>Jasmine</h1>
-      <p class="price">$199.00</p>
-      <p class="availability">Available in stock</p>
-      <p class="description">
-        Jasmine is a fragrant flowering plant belonging to the Oleaceae (olive) family. Known for its sweet and pleasant aroma, jasmine flowers are typically small, white or yellow, and bloom abundantly in warm climates. Native to tropical and subtropical regions, especially in Asia, jasmine is widely cultivated for ornamental use, essential oils, and perfumes. In many cultures, it symbolizes purity, love, and beauty, and is used in religious ceremonies, teas, and traditional medicine.
- </p>
-<label>Size:</label>
-<div class="size-options">
-  <button type="button" class="size-btn">S</button>
-  <button type="button" class="size-btn">M</button>
-  <button type="button" class="size-btn">L</button>
-</div>
-<label>Quantity:</label>
-<div class="quantity-control">
-  <button type="button" class="qty-btn" id="decrease">-</button>
-  <input type="number" id="quantity" value="1" min="1" readonly />
-  <button type="button" class="qty-btn" id="increase">+</button>
-   <script src="script.js"></script>
-</div>
-        <button type="submit" class="add-cart">Add to Cart</button>
 
+  <nav>
+    <img id="logo" src="./media/floraco.png"/>
+    <ul class="nav_list">
+      <li class="nav_li"><a href="index.html">Home</a></li>
+      <li class="nav_li"><a href="products.html">Products</a></li>
+      <li class="nav_li"><a href="#">About</a></li>
+      <li class="nav_li"><a href="#">Contact</a></li>
+    </ul>
+    <div class="nav_right">
+      <a href="cart.html" id="cart" class="selectIcon"><i  class="fi fi-ss-forest"></i></a>
+      <a href="" id="user"><i id="user" class="fi fi-ss-circle-user"></i></a>
+      <i id="menu" class="fi fi-br-menu-burger"></i>
+    </div>
+  </nav>
+
+  <aside id="asideMenu">
+    <i id="close" class="fi fi-ss-cross-small"></i>
+    <ul class="aside_list">
+      <li class="nav_li"><a href="index.html">Home</a></li>
+      <li class="nav_li"><a href="products.html">Products</a></li>
+      <li class="nav_li"><a href="#">About</a></li>
+      <li class="nav_li"><a href="#">Contact</a></li>
+      <li class="nav_li"><a href="cart.html" id="cartSide">Cart</a></li>
+      <li class="nav_li"><a href="#">Profile</a></li>
+    </ul>
+  </aside>
+  <middle class=".container">
+    <div class="left">
+      <div class="imgCard">
+        <img src="./media/plcover.png" alt="Main Product Image" class="product-image" />
+      </div>
+    </div>
+    <div class="right">
+
+      <div class="product-details">
+        <h1 class="title">Jasmine</h1>
+        <p class="price">$199.00</p>
+        <p class="availability">Available in stock</p>
+        <p class="description">
+          Jasmine is a fragrant flowering plant belonging to the Oleaceae (olive) family. Known for its sweet and pleasant aroma, jasmine flowers are typically small, white or yellow, and bloom abundantly in warm climates. Native to tropical and subtropical regions, especially in Asia, jasmine is widely cultivated for ornamental use, essential oils, and perfumes. In many cultures, it symbolizes purity, love, and beauty, and is used in religious ceremonies, teas, and traditional medicine.
+        </p> 
+        <p class="description">
+          The image is for illustration purpose only, the actual product might look diffrent based on the size, age, weather conditions
+        </p>
+        <label>Size:</label>
+        <div class="size-options">
+          <label>
+            <input type="radio" name="size-radio" />
+            <p>S</p>
+          </label>
+          <label>
+            <input type="radio" name="size-radio" />
+            <p>M</p>
+          </label>
+          <label>
+            <input type="radio" name="size-radio" />
+            <p>L</p>
+          </label>
+        </div>
+        <label>Quantity:</label>
+
+        <div class="qtycontrol">
+          <button type="button" class="qty-btn" id="decrease">-</button>
+          <h2 type="number" id="quantity">0</h2>
+          <button type="button" class="qty-btn" id="increase">+</button>
+        </div>
+        <button type="submit" class="add-cart">Add to Cart</button>
+      </div>
+    </div>
+  </middle>
+  <div class="error">
+    <img src="./media/desert.png" alt="">
+    <h2>No Products Found :(</h2>
+  </div>
+  <footer>
+
+    <div class="built">
+      <h1>Go Green</h1>
+      <div class="builtText">Made with <i class="fi fi-ss-heart"></i> from KAKINADA</div>
+    </div>
+
+    <div class="social">  
+
+      <div class="contact">
+        <h4>Contact us: </h4>
+        <p><a href="mailto:flora.company07@gmail.com" title="">flora.company07@gmail.com</a></p>
+      </div>
+
+      <h4>Follow</h4>
+      <div class="profiles">
+        <div class="profile"><a href="" title=""><i class="fi fi-brands-facebook"></i></a></div>
+        <div class="profile"><a href="" title=""><i class="fi fi-brands-instagram"></i></a></div>
+        <div class="profile"><a href="" title=""><i class="fi fi-brands-twitter-alt-square"></i></a></div>
+        <div class="profile"><a href="" title=""><i class="fi fi-brands-google"></i></a></div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
