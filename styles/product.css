@@ -139,6 +139,7 @@ middle{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 
 .imgCard{
@@ -146,8 +147,9 @@ middle{
   aspect-ratio: 1/1;
   margin: 20px 15px;
   border-radius: 20px;
-  border: 2px solid lightgray;
   background-color: white;
+  -webkit-filter: drop-shadow(1px 1px 4px var(--primary-c));
+  filter: drop-shadow(1px 1px 4px var(--primary-c)); 
 }
 
 .product-image{
@@ -592,6 +594,9 @@ footer{
     grid-template-columns: repeat(2, 1fr);
     padding: 0;
   }
+  .title{
+    font-size: 1rem;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -601,10 +606,6 @@ footer{
     padding: 0;
   }
 }
-
-
-
-
 
 @media (max-width: 830px) {
 
@@ -665,10 +666,4 @@ footer{
     height: auto;
   }
 
-}
-
-@media screen and (max-width: 400px){
-  .title{
-    font-size: 1.5rem;
-  }
 }

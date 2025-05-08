@@ -63,6 +63,8 @@ body, html {
   width: 100%;
   align-items: center;
   padding: 20px 20px;
+  padding-right: 7vw;
+  padding-left: 3vw;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -120,10 +122,100 @@ body, html {
   font-size: 1.5rem;
 }
 
+.description{
+  color: gray;
+  padding: 10px 0;
+}
+
+.form-group {
+  width: 50%;
+  margin: 1rem 0;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  background: none;
+  border: none;
+}
+
+.commit{
+  display: flex;
+  gap: 10px;
+}
+
+.cancel{
+  color: red;
+  display: none;
+  border: 1px solid lightgray;
+}
+
+.cancel:hover{
+  background-color: red;
+  color: white;
+}
+
+.delete{
+  color: red;
+  width: 50%;
+  border: 1px solid lightgray;
+}
+
+.delete:hover{
+  background-color: red;
+  color: white;
+}
+
+.save{
+  color: white;
+  display: none;
+  background-color: var(--secondary-c);
+}
+
+.save:hover{
+  background-color: #CF6907;
+}
+
+.edit{
+  color: white;
+  background-color: steelblue;
+}
+
+.edit:hover{
+  background-color: royalblue;
+}
+
+.wrong{
+  color: red;
+}
 
 @media screen and (max-width: 800px){
   .profile-p{
     display: none;
   }
+
+  .form-group {
+    width: 100%;
+  }
+
+  #delete{
+    width: 100%;
+  }
+
 }
 
