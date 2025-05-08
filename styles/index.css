@@ -1,7 +1,7 @@
 
 :root {
 
-	--background-c: #E9FFEE;
+	--background-c: #a8d5ba;
 	--primary-c:  #023918;
 	--secondary-c:  #F99826;
 
@@ -185,7 +185,7 @@ aside{
 }
 
 .text_over button{
-	color: var(--background-c);
+	color: white;
 	background-color: var(--secondary-c);
 	border: none;
 	border-radius: 50px;
@@ -341,7 +341,7 @@ aside{
 	grid-template-columns: repeat(4, 1fr);
 	align-items: center;
 	justify-content: center;
-	gap: 2%;
+	gap: 10px;
 	padding: 10px 10%;
 	margin: 20px 0;
 }

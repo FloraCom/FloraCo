@@ -1,3 +1,12 @@
+:root {
+
+  --background-c: #a8d5ba;
+  --primary-c:  #023918;
+  --secondary-c:  #F99826;
+
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -71,6 +80,7 @@ body, html {
   font-family: 'Cursive', sans-serif;
   margin-bottom:0.5rem;
   text-align: center;
+  color: var(--primary-c);
 }
 
 .form-group {
@@ -92,16 +102,17 @@ body, html {
 .button {
   width: 100%;
   padding: 1rem;
-  background-color: #555;
+  background-color: var(--secondary-c);
   color: white;
   border: none;
+  font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 0.5rem;
 }
 
-.button:hover {
-  background-color: #333;
+.button:hover{
+  background-color: #CF6907;
 }
 
 .options {
