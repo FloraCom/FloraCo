@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FloraCo • Orders</title>
   <link rel="icon" type="image/x-icon" href="./media/fc.png">
-  <link rel="stylesheet" href="./styles/account.css">
+  <link rel="stylesheet" href="./styles/order.css">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css'>  
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
@@ -66,7 +66,324 @@
     <div class="right">
       <div class="rightContent">
         <h1>My Orders</h1>
+        <div class="order">
+          <div class="orderContent">
+            <div class="orderHead">
+              <h2 id="orderId">FCORAAA001</h2>
+              <p id="status" class="pending"> • Pending</p>
+            </div>
+            <ul id="orderList">
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/arch.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="final">
+              <div class="orderHead">
+                <p>Total: <span id="price">Rs.800</span></p>
+                <button class="detailButton" onclick="displayDetails();">Details</button>
+              </div>
+              <div class="orderHead">
+                <p class="shipping" id="shipAddress">Charan Cherry<br>Satyakameswari street Dwaraka Nagar <br>Devi Nilayam Door No:65-2-10<br>Kakinada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order">
+          <div class="orderContent">
+            <div class="orderHead">
+              <h2 id="orderId">FCORAAA001</h2>
+              <p id="status" class="delivered"> • Delivered</p>
+            </div>
+            <ul id="orderList">
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="final">
+              <div class="orderHead">
+                <p>Total: <span id="price">Rs.800</span></p>
+                <button class="detailButton" onclick="displayDetails();">Details</button>
+              </div>
+              <div class="orderHead">
+                <p class="shipping" id="shipAddress">Charan Cherry<br>Satyakameswari street Dwaraka Nagar <br>Devi Nilayam Door No:65-2-10<br>Kakinada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order">
+          <div class="orderContent">
+            <div class="orderHead">
+              <h2 id="orderId">FCORAAA001</h2>
+              <p id="status" class="pending"> • Pending</p>
+            </div>
+            <ul id="orderList">
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/arch.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="final">
+              <div class="orderHead">
+                <p>Total: <span id="price">Rs.800</span></p>
+                <button class="detailButton" onclick="displayDetails();">Details</button>
+              </div>
+              <div class="orderHead">
+                <p class="shipping" id="shipAddress">Charan Cherry<br>Satyakameswari street Dwaraka Nagar <br>Devi Nilayam Door No:65-2-10<br>Kakinada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order">
+          <div class="orderContent">
+            <div class="orderHead">
+              <h2 id="orderId">FCORAAA001</h2>
+              <p id="status" class="delivered"> • Delivered</p>
+            </div>
+            <ul id="orderList">
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="final">
+              <div class="orderHead">
+                <p>Total: <span id="price">Rs.800</span></p>
+                <button class="detailButton" onclick="displayDetails();">Details</button>
+              </div>
+              <div class="orderHead">
+                <p class="shipping" id="shipAddress">Charan Cherry<br>Satyakameswari street Dwaraka Nagar <br>Devi Nilayam Door No:65-2-10<br>Kakinada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order">
+          <div class="orderContent">
+            <div class="orderHead">
+              <h2 id="orderId">FCORAAA001</h2>
+              <p id="status" class="pending"> • Pending</p>
+            </div>
+            <ul id="orderList">
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/arch.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="final">
+              <div class="orderHead">
+                <p>Total: <span id="price">Rs.800</span></p>
+                <button class="detailButton" onclick="displayDetails();">Details</button>
+              </div>
+              <div class="orderHead">
+                <p class="shipping" id="shipAddress">Charan Cherry<br>Satyakameswari street Dwaraka Nagar <br>Devi Nilayam Door No:65-2-10<br>Kakinada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order">
+          <div class="orderContent">
+            <div class="orderHead">
+              <h2 id="orderId">FCORAAA001</h2>
+              <p id="status" class="delivered"> • Delivered</p>
+            </div>
+            <ul id="orderList">
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+              <li class="orderItem">
+                <div class="item">
+                  <div class="image">
+                    <img src="./media/plcover.png" alt="">
+                  </div>
+                  <div class="details">
+                    <h5 id="name">Plant Name</h5>
+                    <p class="description">PLT-MD-PNK</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="final">
+              <div class="orderHead">
+                <p>Total: <span id="price">Rs.800</span></p>
+                <button class="detailButton" onclick="displayDetails();">Details</button>
+              </div>
+              <div class="orderHead">
+                <p class="shipping" id="shipAddress">Charan Cherry<br>Satyakameswari street Dwaraka Nagar <br>Devi Nilayam Door No:65-2-10<br>Kakinada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="error">
+          <img src="./media/desert.png" alt="">
+          <h2>No Orders Placed Yet <br>Shop Now</h2>
+        </div>
       </div>
   </div>
+  <script src="scripts/orders.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
