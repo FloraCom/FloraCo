@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 :root {
 
-  --background-c: #a8d5ba;
-  --primary-c:  #023918;
-  --secondary-c:  #F99826;
+  --forest-green: #2F5233;
+  --sage: #A8BBA2;
+  --terra-cotta: #D08C60;
+  --cream-sand: #F5F1E6;
+  --charcoal:  #333333;
+  --brushed-gold: #C8B273;
+  --burnished-copper: #B87333;
+  --soft-silver: #C0C0C0;
+
+  --background-c: var(--cream-sand);
+  --primary-c:  var(--charcoal);
+  --secondary-c:  var(--forest-green);
 
 }
 
@@ -14,12 +25,14 @@
 
 body, html {
   height: 100%;
-  font-family: 'Arial', sans-serif;
+  font-family: "Lato", serif;
+  font-weight: 500;
   background: var(--background-c);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  user-select: none;
 }
 
 .container {
@@ -36,7 +49,7 @@ body, html {
 
 .left {
   flex: 1;
-  background-color: #a8d5ba;
+  background-color: var(--background-c);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,7 +89,7 @@ body, html {
 }
 
 .right h1 {
-  font-family: 'Cursive', sans-serif;
+  font-family: "Playfair Display", serif;
   margin-bottom:0.8rem;
   color: var(--primary-c);
   text-align: center;
@@ -103,10 +116,30 @@ body, html {
   margin-bottom: 0.5rem;
 }
 
+.seperator{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px 0;
+  position: relative;
+}
+
+
+.seperator p{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: white;
+  padding: 0 5px;
+  transform: translateX(-50%);
+}
+
 .button {
   width: 100%;
   padding: 1rem;
   background-color: var(--secondary-c);
+  font-family: "Playfair Display", serif;
   color: white;
   border: none;
   font-size: 1rem;
@@ -139,11 +172,11 @@ body, html {
 }
 
 .google-login {
-  margin-top: 1rem;
   background: white;
   border: 1px solid #ccc;
   padding: 0.8rem;
   text-align: center;
+  font-family: "Playfair Display", serif;
   border-radius: 4px;
   cursor: pointer;
 }
