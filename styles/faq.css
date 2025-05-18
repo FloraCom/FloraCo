@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 :root {
 
-  --background-c: #E9FFEE;
-  --primary-c:  #023918;
-  --secondary-c:  #F99826;
+  --forest-green: #2F5233;
+  --sage: #A8BBA2;
+  --terra-cotta: #D08C60;
+  --cream-sand: #F5F1E6;
+  --charcoal:  #333333;
+  --brushed-gold: #C8B273;
+  --burnished-copper: #B87333;
+  --soft-silver: #C0C0C0;
+
+  --background-c: var(--cream-sand);
+  --primary-c:  var(--charcoal);
+  --secondary-c:  var(--forest-green);
 
 }
 
@@ -20,6 +31,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 }
 
 .container {
@@ -33,17 +45,15 @@ body, html {
 }
 
 .left {
-  background-color: #a8d5ba;
+  background-color: var(--background-c);
   display: flex;
   flex-direction: column;
-  align-items: start;
-  height: 100%;
-  min-width: 80px;
-  overflow-y: scroll;
+  align-items: center;
 }
 
 .left ul{
   height: 100%;
+  margin: 15% 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +63,6 @@ body, html {
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #5F5F5F;
 }
@@ -68,17 +77,17 @@ body, html {
   padding-right: 7vw;
   padding-left: 3vw;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 600;
   color: #5F5F5F;
 }
 
 .profile-a:hover{
-  background-color: #b9e6ca;
+  background-color: #D6D2C7;
 }
 
 .selected{
-  background-color: #b9e6ca;
+  background-color: #D6D2C7;
   color: var(--primary-c);
 }
 
@@ -89,7 +98,7 @@ body, html {
   justify-content: center;
   width:100%;
   height:100%;
-  background-color: #a8d5ba;
+  background-color: var(--background-c);
 }
 
 .rightContent{
@@ -121,6 +130,7 @@ body, html {
 
 .rightContent h1{
   color: var(--primary-c);
+  font-family: 'PlayFair Display', serif;
   font-size: 1.5rem;
   margin: 15px 0;
 }
@@ -135,6 +145,8 @@ body, html {
 
 #question{
   margin: 10px 0;
+  font-family: 'Lato', serif;
+  color: var(--primary-c);
 }
 
 .description{

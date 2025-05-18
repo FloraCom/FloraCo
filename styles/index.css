@@ -97,13 +97,12 @@ aside{
 
 .nav_li a{
 	text-decoration: none;
-	color: #023918;
+	color: var(--primary-c);
 	font-weight: 500;
 	font-family: 'Lato', serif;
 	text-transform: uppercase;
-	text-decoration-color: var(--secondary-c);
+	text-decoration-color: var(--primary-c);
 	text-decoration-width: 200px;
-
 }
 
 .nav_li a:hover{
@@ -127,7 +126,7 @@ aside{
 
 .nav_right a{
 	text-decoration: none;
-	color: var(--secondary-c);
+	color: var(--primary-c);
 }
 
 
@@ -152,24 +151,28 @@ aside{
 
 #cov{
 	width: 80%;
+	z-index: 1;
 }
 
 #cov img{
 	height: 100%;
 	max-height: 500px;
-	transition: all ease-in 0.2s;
+	transition: all ease 0.3s;
 	-webkit-filter: drop-shadow(1px 1px 30px var(--primary-c));
 	filter: drop-shadow(1px 1px 30px var(--primary-c));
 
 }
 
 #cov img:hover{
-	transform: scale(1.02);
+	transform: scale(1.03);
+	-webkit-filter: drop-shadow(1px 1px 35px var(--secondary-c));
+	filter: drop-shadow(1px 1px 35px var(--secondary-c));
 }
 
 .text_over{
 	width: 100%;
 	position: relative;
+	z-index: 2;
 }
 
 .text{
@@ -212,6 +215,7 @@ aside{
 	padding: 10px;
 	font-size: 1rem;
 	cursor: pointer;
+	text-transform: uppercase;
 	transition: all ease-in 0.2s;
 }
 
@@ -419,7 +423,7 @@ aside{
   margin: 0;
   padding: 10px 0;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--primary-c);
   overflow: hidden;
     display: -webkit-box;
@@ -504,8 +508,8 @@ aside{
 }
 
 footer{
-	background-color: black;
-	font-family: 'Poppins', sans-serif;
+	background-color: var(--forest-green);
+  	font-family: 'Lato', sans-serif;
 	padding: 25px 10px;
 	display: flex;
 	justify-content: space-around;
@@ -578,30 +582,38 @@ footer{
 }
 
 .built{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	padding: 25px;
 }
 
 .built h1{
-	font-family: "Bowlby One", sans-serif;
-	font-weight: 400;
+	font-family: "Lato", sans-serif;
+	font-weight: 800;
 	font-style: normal;
-	font-size: 2.5rem;
+	font-size: 4rem;
 	margin: 0;
 	padding: 0;
-	color: white;
+	color: lightgray;
 }
 
 .builtText{
 	color: lightgrey;
-	font-weight: 600;
+	font-weight: 800;
 	display: flex;
+	font-family: 'Lato', sans-serif;
 	gap: 5px;
-	align-items: center;
+	align-items: end;
 }
 
 .builtText i{
-	color: red;
-	font-size: 1.5rem;
+	color: deeppink;
+	font-size: 1.2rem;
+	font-weight: 800;
+	font-style: normal;
+	padding: 0 5px;
 }
 
 
@@ -720,7 +732,7 @@ footer{
 	}
 
 	.text_over h2{
-		font-size: 1rem;
+		font-size: 1.5rem;
 	}
 
 	.text_over p{
@@ -728,14 +740,21 @@ footer{
 	}
 
 	.features{
-		display: flex;
-		gap: 20px;
+		display: block;
+		gap: 10px;
 		overflow-x: scroll;
 		justify-content: start;
 	}
 
 	.feat{
-		margin-right: 10px;
+		padding: 0 30px;
+	}
+
+	.featText {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
 	}
 
 	.heading{
@@ -749,6 +768,11 @@ footer{
 	}
 
 	.collection{
+		padding: 0;
+	}
+
+	.products ul{
+		grid-template-columns: repeat(1, 1fr);
 		padding: 0;
 	}
 
@@ -767,5 +791,22 @@ footer{
 	.gallery{
 		grid-template-columns: repeat(2, 1fr);
 		gap: 20px;
+	}
+
+	.built{
+		margin: 0;
+		padding: 30px 0;
+	}
+
+	.built h1{
+		font-size: 3rem;
+	}
+
+	.builtText{
+		font-size: 0.9rem;
+	}
+
+	.builtText i{
+		font-size: 1rem;
 	}
 }
