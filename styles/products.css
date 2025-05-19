@@ -126,7 +126,7 @@ aside{
 }
 
 .nav_right a:hover{
-	color: #EA8917;
+	color: var(--secondary-c);
 }
 
 #menu {
@@ -222,14 +222,14 @@ option{
 
 #searchButton{
 	padding: 10px;
-	background-color: var(--secondary-c);
+	background-color: var(--primary-c);
 	color: white;
 	border-radius: 0 5px 5px 0;
 	cursor: pointer;
 }
 
 #searchButton:hover{
-  background-color: #CF6907;
+  background-color: var(--secondary-c);
 }
 
 
@@ -381,11 +381,11 @@ option{
 
 .cardA button {
 	color: white;
-	background-color: var(--secondary-c);
+	background-color: var(--primary-c);
 	border: none;
 	margin: 10px 0px;
 	padding: 8px;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight: 600;
 	font-size: 0.8rem;
 	cursor: pointer;
@@ -393,7 +393,7 @@ option{
 }
 
 .cardA button:hover{
-  	background-color: var(--sage);
+  	background-color: var(--secondary-c);
 }
 
 .error{

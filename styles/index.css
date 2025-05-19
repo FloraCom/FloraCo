@@ -40,7 +40,7 @@ nav {
 	align-items: center;
 	position:sticky;
   	font-family: "Lato", serif;
-	z-index:1;
+	z-index:3;
 }
 
 #logo{
@@ -131,7 +131,7 @@ aside{
 
 
 .nav_right a:hover{
-	color: #EA8917;
+	color: var(--secondary-c);
 }
 
 #menu {
@@ -207,7 +207,7 @@ aside{
 
 .text_over button{
 	color: white;
-	background-color: var(--secondary-c);
+	background-color: var(--primary-c);
   	font-family: "Lato", serif;
 	border: none;
 	width: 150px;
@@ -220,7 +220,7 @@ aside{
 }
 
 .text_over button:hover{
-	transform: scale(1.02);
+	background-color: var(--secondary-c);
 }
 
 .features{
@@ -240,7 +240,7 @@ aside{
 
 .feat i{
 	font-size: 2rem;
-	color: var(--burnished-copper);
+	color: var(--brushed-gold);
 }
 
 .featText{
@@ -448,7 +448,7 @@ aside{
 
 .cardA button {
   color: white;
-  background-color: var(--secondary-c);
+  background-color: var(--primary-c);
   border: none;
   margin: 10px 0px;
   padding: 8px;
@@ -460,7 +460,7 @@ aside{
 }
 
 .cardA button:hover{
-  background-color: var(--sage);
+  background-color: var(--secondary-c);
 }
 
 
@@ -508,7 +508,7 @@ aside{
 }
 
 footer{
-	background-color: var(--forest-green);
+	background-color: var(--primary-c);
   	font-family: 'Lato', sans-serif;
 	padding: 25px 10px;
 	display: flex;

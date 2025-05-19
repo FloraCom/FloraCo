@@ -122,7 +122,7 @@ aside{
 }
 
 .nav_right a:hover{
-  color: #EA8917;
+  color: var(--secondary-c);
 }
 
 #menu {
@@ -262,7 +262,7 @@ th, td{
   margin: 0;
   padding: 0;
   border: none;
-  background-color: var(--secondary-c);
+  background-color: var(--primary-c);
   color: white;
   font-weight: 800;
   font-size: 1.1rem;
@@ -271,7 +271,7 @@ th, td{
 }
 
 .qtycontrol button:hover{
-  background-color: #CF6907;
+  background-color: var(--secondary-c);
 }
 
 #decrease{
@@ -397,7 +397,7 @@ th, td{
   height: 42px;
   padding: 0;
   margin: 0;
-  background-color: var(--secondary-c);
+  background-color: var(--primary-c);
   border: none;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
@@ -406,7 +406,7 @@ th, td{
 }
 
 .apply-btn:hover{
-  background-color: #CF6907;
+  background-color: var(--secondary-c);
 }
 
 .summary-box input,
@@ -455,11 +455,11 @@ textarea {
 }
 
 .payment-options input[type="radio"]:checked + .payment-icon {
-  border: 2px solid #F99826; /* Orange border on selection */
+  border: 2px solid var(--primary-c); /* Orange border on selection */
   border-radius: 12px;
-
+/* 
   -webkit-filter: drop-shadow(1px 1px 3px var(--secondary-c));
-  filter: drop-shadow(1px 1px 3px var(--secondary-c));
+  filter: drop-shadow(1px 1px 3px var(--secondary-c)); */
 }
 
 .payment-icon {
