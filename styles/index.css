@@ -63,7 +63,7 @@ aside{
 	top: 0;
 	right: -100%;
 	flex-direction: column;
-	z-index: 2;
+	z-index: 4;
 	display: none;
 	background-color: white;
 	border: 1px solid var(--primary-c);
@@ -136,7 +136,12 @@ aside{
 
 #menu {
 	display:none;
+	color: var(--primary-c);
 	font-size: 1.3rem;
+}
+
+#menu:hover{
+	color: var(--secondary-c);
 }
 
 .cover{
