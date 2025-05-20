@@ -584,11 +584,11 @@ footer{
   font-size: 4rem;
   margin: 0;
   padding: 0;
-  color: lightgray;
+  color: gray;
 }
 
 .builtText{
-  color: lightgrey;
+  color: grey;
   font-weight: 800;
   display: flex;
   font-family: 'Lato', sans-serif;

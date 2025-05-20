@@ -177,12 +177,18 @@ middle{
 	height: 80px;
 	border-radius: 25px;
 	background-color: white;
+	overflow: hidden;
 }
 
 .ctgryImageView{
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	transition: transform ease 0.5s;
+}
+
+.ctgryImageView:hover{
+	transform: scale(1.1);
 }
 
 .ctgryText{

@@ -138,7 +138,8 @@ body, html {
 .button {
   width: 100%;
   padding: 1rem;
-  background-color: var(--secondary-c);
+  background-color: var(--primary-c);
+  letter-spacing: 0.2rem;
   font-family: "Playfair Display", serif;
   color: white;
   border: none;
@@ -150,7 +151,7 @@ body, html {
 }
 
 .button:hover{
-  background-color: #CF6907;
+  background-color: var(--secondary-c);
 }
 
 .options {

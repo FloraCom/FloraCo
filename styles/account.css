@@ -211,11 +211,11 @@ body, html {
 
 .edit{
   color: white;
-  background-color: steelblue;
+  background-color: var(--primary-c);
 }
 
 .edit:hover{
-  background-color: royalblue;
+  background-color: var(--secondary-c);
 }
 
 .wrong{
