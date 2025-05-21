@@ -81,10 +81,28 @@ body, html {
   background: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  overflow-y: scroll;
   padding:2rem 4rem;
+  padding-top: 15%;
   width:100%;
   height:100%;
+}
+
+.right::-webkit-scrollbar{
+  width: 5px;
+}
+
+.right::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.right::-webkit-scrollbar-thumb{
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: var(--primary-c);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .right h1 {

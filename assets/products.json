@@ -1,0 +1,45 @@
+{
+  "products": {
+    "all": {
+      "plant": {
+        "air": {
+          "FCPS00000": {
+            "description": "This image of Tillandsia ionantha 'Guatemala' is for illustration purposes only. The actual plant may vary in appearance depending on its age, size, and environmental conditions such as light, humidity, and temperature. Tillandsia ionantha 'Guatemala' is an easy-care air plant that thrives in bright, indirect sunlight. It requires misting 2–3 times a week or a weekly soak. Preferring moderate to high humidity, it needs no soil and is pet-friendly. This air-purifying plant grows best in warm temperatures and benefits from monthly feeding.",
+            "id": "FCPS00000",
+            "name": "Tillandsia ionantha Guatemala Plant",
+            "parentCategory": "plant",
+            "subCategory": "air",
+            "tags": [
+              "air",
+              "organic"
+            ],
+            "variations": [
+              {
+                "id": "PLT-SML-GR",
+                "image": "https://nurserylive.com/cdn/shop/products/nurserylive-g-plants-air-plant-tillandsia-ionantha-guatemala-medium-plant_458x458.jpg",
+                "name": "S",
+                "price": "199",
+                "stock": true
+              },
+              {
+                "id": "PLT-MDM-GR",
+                "image": "https://nurserylive.com/cdn/shop/products/nurserylive-g-plants-air-plant-tillandsia-ionantha-guatemala-medium-plant_458x458.jpg",
+                "name": "M",
+                "price": "399",
+                "stock": false
+              },
+              {
+                "id": "PLT-LRG-GR",
+                "image": "https://nurserylive.com/cdn/shop/products/nurserylive-g-plants-air-plant-tillandsia-ionantha-guatemala-medium-plant_458x458",
+                "name": "L",
+                "price": "899",
+                "stock": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "id": 1
+  }
+}

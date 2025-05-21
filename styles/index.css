@@ -437,6 +437,7 @@ aside{
   font-size: 0.9rem;
   font-weight: 600;
   color: gray;
+  text-transform: uppercase;
 }
 
 .title{

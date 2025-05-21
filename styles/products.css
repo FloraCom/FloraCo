@@ -134,6 +134,21 @@ aside{
 	font-size: 1.3rem;
 }
 
+.offer{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: var(--primary-c);
+}
+
+#offerText{
+	margin: 0;
+	padding: 10px;
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 0.5rem;
+	color: var(--background-c);
+}
+
 middle{
 	height: 100%;
 	width: 100%;
@@ -150,7 +165,7 @@ middle{
 }
 
 .categories{
-	width: 75%;
+	width: 85%;
 	overflow: hidden;
 	background-color: var(--background-c);
 	display: flex;
@@ -166,6 +181,7 @@ middle{
 	margin: 0;
 	padding: 0;
 }
+
 .ctgryCard{
 	display: flex;
 	flex-direction: column;
@@ -203,7 +219,7 @@ middle{
 }
 
 .searchBar{
-	width: 75%;
+	width: 85%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -249,7 +265,7 @@ option{
 .dropdowns {
 	display: flex;
 	justify-content: space-between;
-	width: 75%;
+	width: 85%;
 	padding: 2% 10%;
 }
 
@@ -294,7 +310,7 @@ option{
 }
 
 .products ul{
-	width: 75%;
+	width: 85%;
 	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
@@ -545,6 +561,16 @@ footer{
 	padding: 0 5px;
 }
 
+
+
+@media screen and (max-width: 1150px) {
+
+	.ctgryImg{
+		width: 100px;
+		height: 100px;
+	}
+
+}
 
 @media screen and (max-width: 1100px) {
 

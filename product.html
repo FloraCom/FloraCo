@@ -40,27 +40,27 @@
       <li class="nav_li"><a href="login.html">Profile</a></li>
     </ul>
   </aside>
-  <middle class=".container">
+  <middle class="container" id="container">
     <div class="left">
       <div class="imgCard">
-        <img src="./media/arch.png" alt="Main Product Image" class="product-image" />
+        <img alt="Product Image" class="product-image" onerror="src='./media/fc.png';" id="prdImg"/>
       </div>
     </div>
     <div class="right">
 
       <div class="product-details">
-        <h1 class="title">Jasmine</h1>
-        <p class="description" id="discountPrice">199.00</p>
-        <p class="price">199.00</p>
-        <p class="availability">Available in stock</p>
-        <p class="description">
+        <h1 id='title' class="title"></h1>
+        <p class="description" id="discountPrice"></p>
+        <p class="price" id='prdPrice'></p>
+        <p class="availability" id="availability">Available in stock</p>
+        <p class="description" id="description">
           Jasmine is a fragrant flowering plant belonging to the Oleaceae (olive) family. Known for its sweet and pleasant aroma, jasmine flowers are typically small, white or yellow, and bloom abundantly in warm climates. Native to tropical and subtropical regions, especially in Asia, jasmine is widely cultivated for ornamental use, essential oils, and perfumes. In many cultures, it symbolizes purity, love, and beauty, and is used in religious ceremonies, teas, and traditional medicine.
         </p> 
         <p class="description">
           *The image is for illustration purpose only, the actual product might look diffrent based on the size, age, weather conditions
         </p>
         <label>Size:</label>
-        <div class="size-options">
+        <div class="size-options" id="variations">
           <label>
             <input type="radio" name="size-radio" />
             <p>S</p>
@@ -77,16 +77,16 @@
         <label>Quantity:</label>
 
         <div class="qtycontrol">
-          <button type="button" class="qty-btn" id="decrease">-</button>
+          <button type="button" class="qty-btn" id="decrease" onclick="decrease();">-</button>
           <h2 type="number" id="quantity">0</h2>
-          <button type="button" class="qty-btn" id="increase">+</button>
+          <button type="button" class="qty-btn" id="increase" onclick="increase();">+</button>
         </div>
         <button type="submit" class="add-cart">Add to Cart</button>
       </div>
     </div>
   </middle>
-  <div class="error">
-    <img src="./media/desert.png" alt="">
+  <div class="error" id="error">
+    <img src="./media/no-product.png" alt="">
     <h2>Product Not Found :(</h2>
   </div>
   <h1 class="heading">Similar Products</h1>
