@@ -367,12 +367,30 @@ aside{
 }
 
 .products {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  background-color: white;
-  padding-bottom: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	padding-bottom: 25px;
+}
+
+#show-more{
+	color: white;
+	background-color: var(--primary-c);
+  	font-family: "Lato", serif;
+	border: none;
+	width: 100px;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 0.8rem;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all ease-in 0.2s;
+	margin: 25px 0 0 0;
+}
+
+#show-more:hover{
+	background-color: var(--secondary-c);
 }
 
 .products ul{

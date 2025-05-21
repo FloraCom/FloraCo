@@ -18,7 +18,7 @@
 		<img id="logo" src="./media/floraco.png"/>
 		<ul class="nav_list">
 			<li class="nav_li selected"><a href="index.html">Home</a></li>
-			<li class="nav_li"><a href="products.html">Products</a></li>
+			<li class="nav_li"><a href="products.html?category=plant">Products</a></li>
 			<li class="nav_li"><a href="#">About</a></li>
 			<li class="nav_li"><a href="#">Contact</a></li>
 		</ul>
@@ -33,7 +33,7 @@
 		<i id="close" class="fi fi-ss-cross-small"></i>
 		<ul class="aside_list">
 			<li class="nav_li selected"><a href="index.html">Home</a></li>
-			<li class="nav_li"><a href="products.html">Products</a></li>
+			<li class="nav_li"><a href="products.html?category=plant">Products</a></li>
 			<li class="nav_li"><a href="#">About</a></li>
 			<li class="nav_li"><a href="#">Contact</a></li>
 			<li class="nav_li"><a href="cart.html">Cart</a></li>
@@ -47,7 +47,7 @@
 				<div class="text">
 					<h2>'Rooted in Quality,<br>Grown with Love'</h2>
 					<p>We Bring Nature's Touch To Your Doorstep</p>
-					<button id="shop">Shop now</button>
+					<button id="shop" onclick="shopNow();">Shop now</button>
 				</div>
 			</div>
 			<div id="cov">
@@ -97,7 +97,7 @@
 			
 			<div class="collection">
 				<div class="collImg">
-					<a href=""><img src="./media/floral.png" alt=""></a>
+					<a href="products.html?category=floral-supply"><img src="./media/floral.png" alt=""></a>
 				</div>
 				<div class="collText">
 					<h2>Floral Supply</h2>
@@ -107,7 +107,7 @@
 			
 			<div class="collection">
 				<div class="collImg" id="indoor">
-					<a href=""><img src="./media/plcover.png" alt=""></a>
+					<a href="products.html?category=plant"><img src="./media/plcover.png" alt=""></a>
 				</div>
 				<div class="collText">
 					<h2>Indoor Plants</h2>
@@ -117,7 +117,7 @@
 			
 			<div class="collection">
 				<div class="collImg" id="outdoor">
-					<a href=""><img src="./media/outdoor.png" alt=""></a>	
+					<a href="products.html?category=tree"><img src="./media/outdoor.png" alt=""></a>	
 				</div>
 				<div class="collText">
 					<h2>Outdoor Plants</h2>
@@ -127,7 +127,7 @@
 			
 			<div class="collection">
 				<div class="collImg" id="bonsai">
-					<a href=""><img src="./media/bonsai.png" alt=""></a>
+					<a href="products.html?category=plant&sub=bonsai"><img src="./media/bonsai.png" alt=""></a>
 				</div>
 				<div class="collText">
 					<h2>Bonsai Plants</h2>
@@ -137,7 +137,7 @@
 		</div>
 
 		<div class="shippingDetail" id="bonsaiBanner">
-			<a href="" title=""><img class="shipping" src="./media/banner2.png"></a>
+			<a href="products.html?category=plant&sub=bonsai"><img class="shipping" src="./media/banner2.png"></a>
 		</div>
 
 		<h1 class="heading">Our Products</h1>
@@ -146,7 +146,7 @@
 			
 			<div class="collection">
 				<div class="collImg" >
-					<a href=""><img src="./media/flowering.png" alt=""></a>
+					<a href="products.html?category=plant&sub=flowering"><img src="./media/flowering.png" alt=""></a>
 				</div>
 				<div class="collText" id="indoor">
 					<h2>Flowering Plants</h2>
@@ -156,7 +156,7 @@
 			
 			<div class="collection">
 				<div class="collImg">
-					<a href=""><img src="./media/vegetable.png" alt=""></a>
+					<a href="products.html?category=plant&sub=vegetable"><img src="./media/vegetable.png" alt=""></a>
 				</div>
 				<div class="collText" id="vegplants">
 					<h2>Vegetable Plants</h2>
@@ -166,7 +166,7 @@
 			
 			<div class="collection">
 				<div class="collImg">
-					<a href=""><img src="./media/plants.png" alt=""></a>
+					<a href="products.html?category=plant&sub=decorative"><img src="./media/plants.png" alt=""></a>
 				</div>
 				<div class="collText" id="decorative">
 					<h2>Decorative Plants</h2>
@@ -176,7 +176,7 @@
 			
 			<div class="collection">
 				<div class="collImg">
-					<a href=""><img src="./media/seeds.png" alt=""></a>
+					<a href="products.html?category=seed"><img src="./media/seeds.png" alt=""></a>
 				</div>
 				<div class="collText" id="seeds">
 					<h2>Plantation Seeds</h2>
@@ -186,7 +186,7 @@
 			
 			<div class="collection">
 				<div class="collImg">
-					<a href=""><img src="./media/pot.png" alt=""></a>
+					<a href="products.html?category=pot-and-vase"><img src="./media/pot.png" alt=""></a>
 				</div>
 				<div class="collText" id="pots">
 					<h2>Pots and Vases</h2>
@@ -196,7 +196,7 @@
 			
 			<div class="collection">
 				<div class="collImg" >
-					<a href=""><img src="./media/tool.png" alt=""></a>
+					<a href="products.html?category=gardening-tool"><img src="./media/tool.png" alt=""></a>
 				</div>
 				<div class="collText" id="accessories">
 					<h2>Garden Accessories</h2>
@@ -206,7 +206,7 @@
 
 			<div class="collection">
 				<div class="collImg">
-					<a href=""><img src="./media/soil.png" alt=""></a>
+					<a href="products.html?category=soil"><img src="./media/soil.png" alt=""></a>
 				</div>
 				<div class="collText" id="soil">
 					<h2>Gardening Soil</h2>
@@ -216,7 +216,7 @@
 
 			<div class="collection">
 				<div class="collImg" id="indoor">
-					<a href=""><img src="./media/fertilizer.png" alt=""></a>
+					<a href="products.html?category=fertilizer"><img src="./media/fertilizer.png" alt=""></a>
 				</div>
 				<div class="collText">
 					<h2>Gardening Nutrients</h2>
@@ -229,119 +229,8 @@
 
 		<div class="products">
 			<ul id="productsList">
-				<li class="productCard">
-					<a href="product.html?id=rose-plant" class="cardA">
-						<div class="card">
-							<div class="cardImg">
-								<img class="cardImageView" src="./media/plcover.png">
-							</div>
-							<div class="cardText">
-								<p class="category">Plant</p>
-								<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
-								<span class="priceSpan">499.00</span>
-								<h3 class="price">350.00</h3>
-							</div>
-						</div>
-						<button>Add To Cart</button>
-					</a>
-				</li>
-				<li class="productCard">
-					<a href="product.html?id=rose-plant" class="cardA">
-						<div class="card">
-							<div class="cardImg">
-								<img class="cardImageView" src="./media/plcover.png">
-							</div>
-							<div class="cardText">
-								<p class="category">Plant</p>
-								<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
-								<span class="priceSpan">499.00</span>
-								<h3 class="price">350.00</h3>
-							</div>
-						</div>
-						<button>Add To Cart</button>
-					</a>
-				</li>
-				<li class="productCard">
-					<a href="product.html?id=rose-plant" class="cardA">
-						<div class="card">
-							<div class="cardImg">
-								<img class="cardImageView" src="./media/plcover.png">
-							</div>
-							<div class="cardText">
-								<p class="category">Plant</p>
-								<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
-								<span class="priceSpan">499.00</span>
-								<h3 class="price">350.00</h3>
-							</div>
-						</div>
-						<button>Add To Cart</button>
-					</a>
-				</li>
-				<li class="productCard">
-					<a href="product.html?id=rose-plant" class="cardA">
-						<div class="card">
-							<div class="cardImg">
-								<img class="cardImageView" src="./media/plcover.png">
-							</div>
-							<div class="cardText">
-								<p class="category">Plant</p>
-								<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
-								<span class="priceSpan">499.00</span>
-								<h3 class="price">350.00</h3>
-							</div>
-						</div>
-						<button>Add To Cart</button>
-					</a>
-				</li>
-				<li class="productCard">
-					<a href="product.html?id=rose-plant" class="cardA">
-						<div class="card">
-							<div class="cardImg">
-								<img class="cardImageView" src="./media/plcover.png">
-							</div>
-							<div class="cardText">
-								<p class="category">Plant</p>
-								<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
-								<span class="priceSpan">499.00</span>
-								<h3 class="price">350.00</h3>
-							</div>
-						</div>
-						<button>Add To Cart</button>
-					</a>
-				</li>
-				<li class="productCard">
-					<a href="product.html?id=rose-plant" class="cardA">
-						<div class="card">
-							<div class="cardImg">
-								<img class="cardImageView" src="./media/plcover.png">
-							</div>
-							<div class="cardText">
-								<p class="category">Plant</p>
-								<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
-								<span class="priceSpan">499.00</span>
-								<h3 class="price">350.00</h3>
-							</div>
-						</div>
-						<button>Add To Cart</button>
-					</a>
-				</li>
-				<li class="productCard">
-					<a href="product.html?id=rose-plant" class="cardA">
-						<div class="card">
-							<div class="cardImg">
-								<img class="cardImageView" src="./media/plcover.png">
-							</div>
-							<div class="cardText">
-								<p class="category">Plant</p>
-								<h3 class="title">Rfghdfghdosa Plantisorias hjfhjfghjfghj</h3>
-								<span class="priceSpan">499.00</span>
-								<h3 class="price">350.00</h3>
-							</div>
-						</div>
-						<button>Add To Cart</button>
-					</a>
-				</li>
 			</ul>
+			<button id="show-more" onclick="showMore();">Show More</button>
 		</div>
 
 		<div class="shippingDetail" id="shipp">

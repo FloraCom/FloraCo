@@ -1,6 +1,37 @@
 {
   "products": {
     "all": {
+      "floral-supply": {
+        "decorations": {
+          "FCPS00002": {
+            "description": "sgdfgsdfgs",
+            "id": "FCPS00002",
+            "name": "ggdf",
+            "parentCategory": "floral-supply",
+            "subCategory": "decorations",
+            "tags": [
+              "dfghfg",
+              "fgfgh"
+            ],
+            "variations": [
+              {
+                "id": "fhgfghd",
+                "image": "ghdfghdfgh",
+                "name": "fghdfgh",
+                "price": "1521515",
+                "stock": true
+              },
+              {
+                "id": "dfghdfgh",
+                "image": "dhgdfghdf",
+                "name": "dfghdfg",
+                "price": "",
+                "stock": true
+              }
+            ]
+          }
+        }
+      },
       "plant": {
         "air": {
           "FCPS00000": {

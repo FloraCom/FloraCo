@@ -211,6 +211,39 @@ middle{
 	color: var(--primary-c);
 }
 
+.head{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.headContent{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 3rem 1.5rem ;
+	gap: 2rem;
+}
+
+.headContent div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.headContent div span{
+	font-family: 'PlayFair Display', sans-serif;
+	font-size: 2.5rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	color: var(--primary-c);
+}
+
+
 .searchView{
 	width: 100%;
 	display: flex;
@@ -236,10 +269,7 @@ middle{
 }
 
 option{
-	color: white;
-	height: 100%;
-	width: 100%;
-	padding: 10px;
+	cursor: pointer;
 }
 
 #searchButton{
@@ -303,10 +333,29 @@ option{
 
 .products {
 	display: flex;
-	justify-content: center;
-	align-items: start;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
 	background-color: var(--background-c);
 	padding-bottom: 25px;
+}
+
+#show-more{
+	color: white;
+	background-color: var(--primary-c);
+  	font-family: "Lato", serif;
+	border: none;
+	width: 100px;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 0.8rem;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all ease-in 0.2s;
+}
+
+#show-more:hover{
+	background-color: var(--secondary-c);
 }
 
 .products ul{
@@ -369,8 +418,9 @@ option{
   margin: 0;
   padding: 0;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 400;
   color: gray;
+  text-transform: uppercase;
 }
 
 .title{
@@ -421,11 +471,12 @@ option{
 .error{
 	background-color: var(--background-c);
 	width: 100%;
-	height: 100vh;
 	display: none;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: start;
+	margin: 8% 0 15% 0;
+	font-size: 2vw;
 }
 
 .open{
@@ -635,6 +686,10 @@ footer{
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.error img{
+		width: 50%;
 	}
 
 	.built h1{
