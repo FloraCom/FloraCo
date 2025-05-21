@@ -51,7 +51,7 @@ function showData(products){
 }
 
 function display() {
-  fetch("./assets/products.json")
+  fetch("./assets/product.json")
   	.then((res) => {if (!res.ok) {} return res.json();})
   	.then((data) => {
 	  
