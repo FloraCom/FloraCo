@@ -11,29 +11,32 @@ function showData(products){
 	let content = document.getElementById('productsList');
 
 	content.innerHTML = '';
-	Object.values(Object.values(products)[0]).forEach((obj, index) => {
 
-		if (index < 10) {
-			const li = document.createElement('li');
-			li.className = 'productCard';
-			li.innerHTML = `
-				<a href="product.html?category=${obj.parentCategory}&sub=${obj.subCategory}&id=${obj.id}" class="cardA">
-					<div class="card">
-						<div class="cardImg">
-							<img class="cardImageView" src="${obj.variations[0].image}" onerror="this.onerror=null;this.src='./media/fc.png';">
+	Object.values(products).forEach(prod => {
+		Object.values(prod).forEach((obj, index) => {
+
+			if (index < 10) {
+				const li = document.createElement('li');
+				li.className = 'productCard';
+				li.innerHTML = `
+					<a href="product.html?category=${obj.parentCategory}&sub=${obj.subCategory}&id=${obj.id}" class="cardA">
+						<div class="card">
+							<div class="cardImg">
+								<img class="cardImageView" src="${obj.variations[0].image}" onerror="this.onerror=null;this.src='./media/fc.png';">
+							</div>
+							<div class="cardText">
+								<p class="category">${obj.parentCategory}</p>
+								<h3 class="title">${obj.name}</h3>
+								<span class="priceSpan">499.00</span>
+								<h3 class="price">${obj.variations[0].price}</h3>
+							</div>
 						</div>
-						<div class="cardText">
-							<p class="category">${obj.parentCategory}</p>
-							<h3 class="title">${obj.name}</h3>
-							<span class="priceSpan">499.00</span>
-							<h3 class="price">${obj.variations[0].price}</h3>
-						</div>
-					</div>
-					<button>Add To Cart</button>
-				</a>
-			`;
-			content.appendChild(li);
-		}
+						<button>Add To Cart</button>
+					</a>
+				`;
+				content.appendChild(li);
+			}
+		});
 	});
 
 		/*
