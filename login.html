@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FloraCo • Login</title>
+  <script src="scripts/login.js" type="module" charset="utf-8" async defer></script>
   <link rel="icon" type="image/x-icon" href="./media/fc.png">
   <link rel="stylesheet" href="./styles/login.css">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css'>  
@@ -19,31 +20,17 @@
       <img src="./media/plants.png" alt="Plant Illustration">
     </div>
     <div class="right">
-      <h1><img src="./media/floraco.png" class="logo" />
-      Login</h1>
-      <form>
-        <div class="form-group">
-          <label for="email">Email ID</label>
-          <input type="email" id="email" placeholder="example@gmail.com">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="********">
-        </div>
-        <div style="text-align: right; margin-bottom: 1rem;">
-          <a href="account.html">Forgot password?</a>
-        </div>
-        <button type="submit" class="button" onclick="">LOGIN</button>
-      </form>
-      <div class="seperator">
-        <hr>
-        <p>or</p>
+      <div class="images">
+        <img src="./media/floraco.png" alt="Logo" class="logo">
       </div>
-      <div class="google-login">
-        Sign in with Google
+      <div class="images">
+        <img src="./media/login.png" alt="Login" class="login">
       </div>
-      <div class="options">
-        New User? <a href="signup.html">Create Account</a>
+      <h1>Welcome to FloraCo</h1>
+      <p>We bring nature's touch to your doorstep</p>
+      <p>To continue sign-in with Google</p>
+      <div class="google-login" id="google-login">
+        <img src="media/google.png" alt="Google">Sign in with Google
       </div>
     </div>
   </div>

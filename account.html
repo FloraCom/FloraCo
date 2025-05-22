@@ -69,11 +69,7 @@
         <p class="description">This information is stored securely with us only username is visible on the shipment</p>
         <div class="form-group">
           <label for="name">Username</label>
-          <input type="name" id="name" placeholder="e.g. Dave Jones">
-        </div>
-        <div class="form-group">
-          <label for="gender">Gender</label>
-          <input type="text" id="gender" placeholder="e.g. Male">
+          <input type="name" id="name" placeholder="e.g. Dave Jones" disabled="true">
         </div>
         <div class="form-group">
           <label for="email">Email ID</label>
@@ -91,19 +87,19 @@
         <p class="description">This information is stored within your device and not stored by us. This is what we use to deliver the shipment</p>
         <div class="form-group">
           <label for="phone">Phone No</label>
-          <input type="number" id="phone" maxlength="10" placeholder="e.g. 9876543210">
+          <input type="number" id="phone" maxlength="10" placeholder="e.g. 9876543210" disabled="true">
         </div>
         <div class="form-group">
           <label for="street">Street, D.No</label>
-          <input type="text" id="street" maxlength="60" placeholder="e.g. St. John Street, D.No 65-1-2">
+          <input type="text" id="street" maxlength="60" placeholder="e.g. St. John Street, D.No 65-1-2" disabled="true">
         </div>
         <div class="form-group">
           <label for="locality">Locality, P.O</label>
-          <input type="text" id="locality" maxlength="60" placeholder="e.g. Kakinada">
+          <input type="text" id="locality" maxlength="60" placeholder="e.g. Kakinada" disabled="true">
         </div>
         <div class="form-group">
           <label for="pin">Pincode</label>
-            <input type="number" id="pin" placeholder="e.g. 555555"/>
+            <input type="number" id="pin" placeholder="e.g. 555555" disabled="true"/>
         </div>
         <div class="form-group">
           <label for="country">Country</label>
@@ -117,33 +113,8 @@
         </div>
         <br>
         <br>
-        <h1>Password Settings</h1>
-        <p class="description">Manage your account password</p>
-        <div class="form-group">
-          <label for="password">Current Password</label>
-          <input type="password" name="password" id="password" placeholder="• • • • • • • • • ">
-        </div>
-        <div class="form-group">
-          <label for="npassword">New Password</label>
-          <input type="password" name="password" id="npassword" placeholder="• • • • • • • • • ">
-        </div>
-        <div class="form-group">
-          <label for="cpassword">Confirm New Password</label>
-          <input type="password" name="password" id="cpassword" placeholder="• • • • • • • • • ">
-        </div>
-        <div class="commit">
-          <button class="button edit" onclick="editPassword();" id="pedit">Edit</button>
-          <button class="button save" onclick="" id="psave">Save</button>
-          <button class="button cancel" onclick="cancelPassword();" id="pcancel">Cancel</button>
-        </div>
-        <br>
-        <br>
         <h1>Account Deletion</h1>
-        <p class="description">Once deleted the account cannot be recovered by any means or form. To delete first enter your current password</p>
-        <div class="form-group">
-          <label for="password">Current Password</label>
-          <input type="password" name="password" id="password" placeholder="• • • • • • • • • ">
-        </div>
+        <p class="description">Once deleted the account cannot be recovered by any means or form.</p>
         <div class="commit">
           <button class="button delete" onclick="" id="delete">Delete My Account</button>
         </div>

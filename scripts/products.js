@@ -206,6 +206,7 @@ function display() {
 				noProduct();
 			}
 		} else {
+			location.replace('products.html?category=plant');
 			noProduct();
 		}
 

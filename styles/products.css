@@ -209,6 +209,7 @@ middle{
 
 .ctgryText{
 	color: var(--primary-c);
+	text-align: center;
 }
 
 .head{
