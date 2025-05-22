@@ -176,8 +176,6 @@ middle{
   transform: scale(1.1);
 }
 
-
-
 .right{
   flex: 0 0 50%;
   margin: 0;
@@ -201,12 +199,18 @@ middle{
   font-family: 'Lato', sans-serif;
 }
 
-.price{
-  font-size: 1.6rem;
+.price {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--burnished-copper);
+}
+
+#prdPrice{
+  font-size: 1.5rem;
   font-weight: 800;
   margin: 0;
   padding: 0;
-  color: green;
 }
 
 #discountPrice{
@@ -215,6 +219,10 @@ middle{
   text-decoration: line-through;
   text-decoration-color: red;
   text-decoration-thickness: 2px;
+}
+
+#discountPrice::before{
+  content: 'Rs.';
 }
 
 .description{
@@ -410,17 +418,17 @@ middle{
 .category {
   margin: 0;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: gray;
+  text-transform: uppercase;
 }
 
 .title{
   margin: 0;
   padding: 10px 0;
   font-size: 1rem;
-  font-weight: 600;
-  font-family: 'Lato', sans-serif;
+  font-weight: 500;
   color: var(--primary-c);
   overflow: hidden;
     display: -webkit-box;
@@ -434,17 +442,16 @@ middle{
   color: grey;
   font-weight: 400;
   text-decoration: line-through;
+  text-decoration-color: red;
 }
 
-.price {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--burnished-copper);
+.priceSpan::before{
+  content: 'Rs.';
 }
 
 .price::before{
   content: 'Rs.';
+  font-size: 1rem;
 }
 
 .cardA button {

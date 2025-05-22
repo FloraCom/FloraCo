@@ -81,7 +81,7 @@
 							<a href="products.html?category=tree" class="cardA">
 								<div class="ctgryCard">
 									<div class="ctgryImg">
-										<img class="ctgryImageView" src="./media/trees.png">
+										<img class="ctgryImageView" src="./media/outdoor.png">
 									</div>
 									<div class="ctgryText">
 										<h3 class="title">Trees</h3>
@@ -193,15 +193,15 @@
 
 					<div class="drop">
 						<i class="fi fi-br-bars-sort"></i>
-						<select class="choose" id="sort">
+						<select class="choose" id="sort" onchange="display();">
 							<option>Sort</option>
 							<optgroup label="Name">
-								<option value="">A to Z</option>
-								<option value="">Z to A</option>
+								<option value="0">A to Z</option>
+								<option value="1">Z to A</option>
 							</optgroup>
 							<optgroup label="Price">
-								<option value="">High to Low</option>
-								<option value="">Low to High</option>
+								<option value="2">Low to High</option>
+								<option value="3">High to Low</option>
 							</optgroup>
 						</select>
 					</div>

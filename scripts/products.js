@@ -53,6 +53,27 @@ function populateContent(products) {
 	}
 
 	products = Object.values(products);
+
+	let sortType = parseInt(document.getElementById('sort').value);
+
+	if (sortType == 0) {
+		products = products.sort((a,b) => {
+			if (a.name < b.name) return -1;
+			if (a.name > b.name) return 1;
+			return 0;
+		});
+	}else if (sortType == 1) {
+		products = products.sort((a,b) => {
+			if (a.name < b.name) return 1;
+			if (a.name > b.name) return -1;
+			return 0;
+		});
+	}else  if (sortType == 2) {
+		products = products.sort((a,b) => { return parseInt(a.variations[0].price) - parseInt(b.variations[0].price);});
+	}else  if (sortType == 3) {
+		products = products.sort((a,b) => { return parseInt(b.variations[0].price) - parseInt(a.variations[0].price);});
+	}
+
 	products.slice(0, displayAmount).forEach((obj, index) => {
 		const li = document.createElement('li');
 		li.className = 'productCard';
@@ -60,7 +81,7 @@ function populateContent(products) {
 		<a href="product.html?category=${obj.parentCategory}&sub=${obj.subCategory}&id=${obj.id}" class="cardA">
 		<div class="card">
 		<div class="cardImg">
-		<img class="cardImageView" src="${obj.variations[0].image}" onerror="this.onerror=null;this.src='./media/fc.png';">
+		<img class="cardImageView" src="${obj.variations[0].image}" onerror="src='./media/fc.png';">
 		</div>
 		<div class="cardText">
 		<p class="category">${String(obj.parentCategory).replace('-', " ")}</p>
@@ -90,10 +111,31 @@ function capitalizeFirstLetter(val) {
 	return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
+function sortList(){
+	let sortType = parseInt(document.getElementById('sort').value);
+
+	if (sortType == 0) {
+		products = products.sort((a,b) => {
+			if (a.name < b.name) return -1;
+			if (a.name > b.name) return 1;
+			return 0;
+		});
+	}else if (sortType == 1) {
+		products = products.sort((a,b) => {
+			if (a.name < b.name) return 1;
+			if (a.name > b.name) return -1;
+			return 0;
+		});
+	}else  if (sortType == 2) {
+		products = products.sort((a,b) => { parseInt(a.price) - parseInt(b.price)});
+	}else  if (sortType == 3) {
+		products = products.sort((a,b) => { parseInt(b.price) - parseInt(a.price)});
+	}
+}
+
 function populateFilter(){
 
 	let filter = document.getElementById('filter');
-	filter.innerHTML = '<option value="all">Filter</option>';
 
 	if (categories[category]) {
 		categories[category].forEach(opt => {
@@ -141,6 +183,7 @@ function display() {
 		products = [];
 
 		if (category && sub && sub !== "all") {
+
 			if (cat) {
 				products = cat[sub];
 				if (products){
@@ -152,8 +195,7 @@ function display() {
 			} else {
 				noProduct();
 			}
-			populateFilter();
-		} else if (category) {
+		} else if (category || sub == "all") {
 
 			if (cat) {
 				Object.values(cat).forEach(product => {
@@ -163,7 +205,6 @@ function display() {
 			}else{
 				noProduct();
 			}
-			populateFilter();
 		} else {
 			noProduct();
 		}
@@ -184,5 +225,5 @@ function showMore() {
 	display();
 }
 
-
+populateFilter();
 display();

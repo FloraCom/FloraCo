@@ -452,7 +452,7 @@ aside{
 .category {
   margin: 0;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: gray;
   text-transform: uppercase;
@@ -476,6 +476,11 @@ aside{
   color: grey;
   font-weight: 400;
   text-decoration: line-through;
+  text-decoration-color: red;
+}
+
+.priceSpan::before{
+	content: 'Rs.';
 }
 
 .price {
@@ -483,6 +488,11 @@ aside{
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--burnished-copper);
+}
+
+.price::before{
+	content: 'Rs.';
+	font-size: 1rem;
 }
 
 .cardA button {
@@ -569,7 +579,8 @@ footer{
 	padding: 0;
 	pointer-events: none;
 	color: white;
-	font-weight: 500;
+	font-weight: 800;
+	font-size: 1.1rem;
 }
 
 .social a{
@@ -604,19 +615,21 @@ footer{
 .contact h4{
 	margin: 0;
 	padding: 0;
+	font-weight: 800;
+	font-size: 1.1rem;
 	pointer-events: none;
 }
 
 .contact p{
 	font-weight: 600;
 	color: lightgrey;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	margin: 0;
 	padding: 0;
 }
 
 .contact a{
-	color: gray;
+	color: lightgray;
 	font-size: 1rem;
 }
 
