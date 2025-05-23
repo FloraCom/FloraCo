@@ -1,3 +1,2 @@
-function displayDetails() {
-	
-}
+
+console.log(localStorage['FloraCoLoggIn']);

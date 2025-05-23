@@ -3,6 +3,7 @@ function editAccount(){
 	document.getElementById('asave').style.display="block";
 	document.getElementById('acancel').style.display="block";
 	document.getElementById('name').disabled=false;
+	document.getElementById('name').style.borderColor="#333";
 }
 
 function editInformation(){
@@ -10,15 +11,13 @@ function editInformation(){
 	document.getElementById('isave').style.display="block";
 	document.getElementById('icancel').style.display="block";
 	document.getElementById('phone').disabled=false;
+	document.getElementById('phone').style.borderColor="#333";
 	document.getElementById('street').disabled=false;
+	document.getElementById('street').style.borderColor="#333";
 	document.getElementById('locality').disabled=false;
+	document.getElementById('locality').style.borderColor="#333";
 	document.getElementById('pin').disabled=false;
-}
-
-function editPassword(){
-	document.getElementById('pedit').style.display="none";
-	document.getElementById('psave').style.display="block";
-	document.getElementById('pcancel').style.display="block";
+	document.getElementById('pin').style.borderColor="#333";
 }
 
 function cancelAccount(){
@@ -26,6 +25,7 @@ function cancelAccount(){
 	document.getElementById('asave').style.display="none";
 	document.getElementById('acancel').style.display="none";
 	document.getElementById('name').disabled=true;
+	document.getElementById('name').style.borderColor="#ccc";
 	updateFields();
 }
 
@@ -34,23 +34,17 @@ function cancelInformation(){
 	document.getElementById('isave').style.display="none";
 	document.getElementById('icancel').style.display="none";
 	document.getElementById('phone').disabled=true;
+	document.getElementById('phone').style.borderColor="#ccc";
 	document.getElementById('street').disabled=true;
+	document.getElementById('street').style.borderColor="#ccc";
 	document.getElementById('locality').disabled=true;
+	document.getElementById('locality').style.borderColor="#ccc";
 	document.getElementById('pin').disabled=true;
+	document.getElementById('pin').style.borderColor="#ccc";
 	updateFields();
 }
 
-function cancelPassword(){
-	document.getElementById('pedit').style.display="block";
-	document.getElementById('psave').style.display="none";
-	document.getElementById('pcancel').style.display="none";
-}
-
-updateFields();
-
 function updateFields(){
-
-	console.log(localStorage['userDATA']);
 	let data = JSON.parse(localStorage['userDATA']);
 
 	if(data){
@@ -62,3 +56,5 @@ function updateFields(){
 		document.getElementById('pin').value = data.pincode ? data.pincode : '';
 	}
 }
+
+updateFields();
