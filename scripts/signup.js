@@ -20,25 +20,16 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const rdb = getDatabase(app);
 
-runTransaction(child(ref(rdb), 'numericals/users'), (currentValue) => {
-		return currentValue+1;
-}).then((result) => {
-		if (result.committed) {
-			let id = result.snapshot.val();
-			let usid = 'FCUS'+String(id).padStart(5, "0");
-			window.localStorage.setItem('UserID', usid);
-			onAuthStateChanged(auth, (user) => {
-				if (user) {
-					updateName(user);
-					const uid = user.uid;
-					addUser(db, user, usid);
-					return uid;
-				}else{
-					window.location.replace('login.html');
-				}
-			});
-		}
-}).catch((err)=>{});
+onAuthStateChanged(auth, (user) => {
+	if (user) {
+		updateName(user);
+		const uid = user.uid;
+		addUser(db, user);
+		return uid;
+	}else{
+		window.location.replace('login.html');
+	}
+});
 
 
 function updateName(user){
@@ -46,55 +37,75 @@ function updateName(user){
 	document.getElementById('mail').innerHTML = user.email;
 }
 
-async function addUser(db, user, userId){
+async function addUser(db, user){
 
-	set(ref(rdb, 'users/'+user.uid), userId)
-	.then(()=>{
-		document.getElementById('submit').addEventListener('click', ()=>{
+	let count = 0; 
+	document.getElementById('submit').addEventListener('click', ()=>{
 
-			let name = document.getElementById('username').value;
-			let email = user.email;
-			let image = user.photoURL;
-			const data = {
-				name: name.trim(),
-				email: email,
-				image: image,
-				id: userId
-			};
+		let name = document.getElementById('username').value;
+		let email = user.email;
+		let image = user.photoURL;
+		document.getElementById('submit').disabled = true;
 
-			const dataStore = {
-				name: name.trim(),
-				email: email,
-				image: image,
-				id: userId,
-				phone: 0,
-				street: '',
-				locality: '',
-				pincode: 0,
-				country: 'India'
-			};
+		if (String(document.getElementById('username').value).length > 3) {
+			
+			runTransaction(child(ref(rdb), 'numericals/users'), (currentValue) => {
+					return (count == 0) ? currentValue+1 : currentValue;
+			}).then((result) => {
+				document.getElementById('submit').disabled = true;
+				if (result.committed) {
+					count = count+1;
+					let id = result.snapshot.val();
+					let userId = 'FCUS'+String(id).padStart(5, "0");
+					var reff = doc(db, "users", userId);
+					const data = {
+						name: name.trim(),
+						email: email,
+						image: image,
+						id: userId
+					};
 
-			let dataString = JSON.stringify(dataStore);
-			if (String(document.getElementById('username').value).length > 3 && userId) {
-				var ref = doc(db, "users", userId);
-				const docRef = setDoc(ref, data)
-				.then(()=>{
-					window.localStorage.setItem("userDATA", dataString);
-					window.localStorage.setItem("FloraCoUserLogIn", "true");
-					window.location.replace('account.html')
-				})
-				.catch((error)=>{
-					console.log(error);
-				});
+					const dataStore = {
+						name: name.trim(),
+						email: email,
+						image: image,
+						id: userId
+					};
 
-			}else{
-				alert('Invalid Details');
-			}
-		});
-	})
-	.catch((e)=>{
-		alert("Unexpected error occurred retry");
+					let dataString = JSON.stringify(dataStore);
+
+					set(ref(rdb, 'users/'+user.uid), userId)
+						.then(()=>{
+						const docRef = setDoc(reff, data)
+						.then(()=>{
+							window.localStorage.setItem((userId+"data"), dataString);
+							window.localStorage.setItem("FloraCoUserLogIn", "true");
+							window.localStorage.setItem('UserID', userId);
+							window.location.replace('account.html')
+						})
+						.catch((error)=>{
+							console.log('Er'+error);
+							document.getElementById('submit').disabled = false;
+						});
+					})
+					.catch((e)=>{
+						console.log('Err'+e);
+						document.getElementById('submit').disabled = false;
+					});
+				}else{
+					count = 0;
+					document.getElementById('submit').disabled = false;
+				}
+			}).catch((err)=>{
+					count = 0;
+					console.log('Error '+err);
+					document.getElementById('submit').disabled = false;
+			});
+
+		}else{
+			alert('Invalid Details');
+			document.getElementById('submit').disabled = false;
+		}
 	});
-
 	
 };

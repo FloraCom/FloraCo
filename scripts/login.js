@@ -34,6 +34,16 @@ if (window.localStorage.getItem("FloraCoUserLogIn") === "false" || window.localS
 
 				get(child(ref(db), 'users/'+result.user.uid)).then((snapshot)=>{
 			        var id = snapshot.val();
+
+			        var dataString = {
+						name: result.user.displayName.trim(),
+						email: result.user.email,
+						image: result.user.image,
+						id: result.user.uid
+			        };
+
+			        dataString = JSON.stringify(dataString);
+			        window.localStorage.setItem((id+"data"), dataString);
 			        window.localStorage.setItem('UserID', id);
 					window.localStorage.setItem("FloraCoUserLogIn", "true");
 					window.location.replace('account.html');
