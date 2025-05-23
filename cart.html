@@ -41,7 +41,7 @@
     </ul>
   </aside>
 
-  <div class="container">
+  <div class="container" id="container">
     <div id="left" class="left">
       <h2 class="heading">Shopping Cart</h2>
       <table>
@@ -53,7 +53,7 @@
             <th>Total</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
           <tr>
             <td>
               <img src="./media/plants.png" class="product-img" />
@@ -69,9 +69,9 @@
             <td>
               <div class="quantity-control">
                 <div class="qtycontrol">
-                  <button type="button" class="qty-btn" id="decrease" onclick="increment('-');">-</button>
-                  <h2 type="number" id="quantity">0</h2>
-                  <button type="button" class="qty-btn" id="increase" onclick="increment('+');">+</button>
+                  <p type="button" class="qty-btn" id="decrease" onclick="increment('-');">-</p>
+                  <input type="number" id="quantity" value="1">
+                  <p type="button" class="qty-btn" id="increase" onclick="increment('+');">+</p>
                 </div>
               </div>            
             </td>
@@ -362,8 +362,14 @@
         <button id="checkout" class="checkout-btn">Checkout (₹1900)</button>
       </div>
     </div>
+
   </div>
-</div>
+      
+
+    <div class="error" id="error">
+      <img src="./media/no-product.png" alt="">
+      <h2>No Products Found :(</h2>
+    </div>
 
 
 <div class="built">

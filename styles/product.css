@@ -276,13 +276,12 @@ middle{
   filter: drop-shadow(1px 1px 4px var(--secondary-c)); */
 }
 
-.qtycontrol h2{
+.qtycontrol input{
   width: 50px;
   height: 35px;
   margin: 0;
   padding: 0;
-  border: none;
-  pointer-events: none;
+  border: 1px solid var(--primary-c);
   font-size: 1rem;
   text-align: center;
   display: flex;

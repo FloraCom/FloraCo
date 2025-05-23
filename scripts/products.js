@@ -179,37 +179,42 @@ function display() {
 	.then((res) => {if (!res.ok) {} return res.json();})
 	.then((data) => {
 
-		let cat = Object.values(data)[0]['all'][category];
-		products = [];
+		try{
+			let cat = Object.values(data)[0]['all'][category];
+			products = [];
 
-		if (category && sub && sub !== "all") {
+			if (category && sub && sub !== "all") {
 
-			if (cat) {
-				products = cat[sub];
-				if (products){
-					products = Object.values(products);
+				if (cat) {
+					products = cat[sub];
+					if (products){
+						products = Object.values(products);
+						showData(products);
+					}else{
+						noProduct();
+					}
+				} else {
+					noProduct();
+				}
+			} else if (category || sub == "all") {
+
+				if (cat) {
+					Object.values(cat).forEach(product => {
+						products = products.concat(Object.values(product));
+					});
 					showData(products);
 				}else{
 					noProduct();
 				}
 			} else {
+				location.replace('products.html?category=plant');
 				noProduct();
 			}
-		} else if (category || sub == "all") {
 
-			if (cat) {
-				Object.values(cat).forEach(product => {
-					products = products.concat(Object.values(product));
-				});
-				showData(products);
-			}else{
+			}catch(error){
 				noProduct();
 			}
-		} else {
-			location.replace('products.html?category=plant');
-			noProduct();
-		}
-
+		
 	}).catch();
 
 }

@@ -12,12 +12,14 @@ const category = params.get('category');
 const sub = params.get('sub');
 const id = params.get('id');
 
+let option = params.get('option');
 let variation = 0;
 let product = '';
-let quantity = 0;
+let quantity = 1;
+let price = 199;
 
 function decrease(){
-	if (quantity > 0){
+	if (quantity > 1){
 		--quantity;
 	}
 	document.getElementById('quantity').innerHTML = quantity;
@@ -47,17 +49,27 @@ function noProduct(){
 	document.getElementById('error').style.display = 'flex';
 }
 
-function changeVariation(variant){
+function changeVariation(variant, vari){
 	variation = variant;
+	option = vari[variant].id;
+	console.log(option);
 	showData(product);
 }
 
 function populateContent(product) {
 
+	if (option) {
+		variation = checkValueIndex(product.variations, option);
+	}else{
+		option = product.variations[variation].id;
+	}
+
+	price = parseInt(product.variations[variation].price);
+
 	document.getElementById("prdImg").src = product.variations[variation].image;
 	document.getElementById("title").innerHTML = product.name;
-	document.getElementById("prdPrice").innerHTML = product.variations[variation].price;
-	document.getElementById("discountPrice").innerHTML = parseInt(parseInt(product.variations[variation].price)+(parseInt(product.variations[variation].price)*0.1));
+	document.getElementById("prdPrice").innerHTML = price;
+	document.getElementById("discountPrice").innerHTML = parseInt(price+(price*0.1));
 	document.getElementById("availability").innerHTML = (product.variations[variation].stock) ? 'Available In Stock' : 'Out Of Stock';
 	document.getElementById("description").innerHTML = (product.description);
 	let variations = document.getElementById("variations");
@@ -72,7 +84,7 @@ function populateContent(product) {
 			`;
 		} else {
 			label.innerHTML = `
-				<input type="radio" name="size-radio" onclick="changeVariation(${index});"/>
+				<input type="radio" name="size-radio" onclick="changeVariation(${index}, ${vari});"/>
 				<p>${vari['name']}</p>
 			`;
 		}
@@ -95,15 +107,78 @@ function display() {
   	.then((data) => {
 
   		if (category && sub && id) {
-  			product = Object.values(data)[0]['all'][category][sub][id];
-	  		showData(product);
+  			try{
+  				product = Object.values(data)[0]['all'][category][sub][id];
+	  			showData(product);
+  			}catch(error){
+  				console.log(error);
+  				noProduct();
+  			}
   		} else {
   			noProduct();
   		}
-	  
-
   
 	}).catch();
 }
 
+function checkValueExists(arr, key, value) {
+	return arr.some(obj => obj[key] === value);
+}
+
+function checkInnerValueExists(arr, key, subKey, value1, value2) {
+
+	let ind = -1;
+	arr.forEach((obj, index) => {
+
+		if ((obj[key] === value1) && (obj[subKey] === value2)) {
+			ind = index;
+		}
+
+	});
+
+	return ind;
+}
+
+function checkObjectIndex(arr, object) {
+	return arr.findIndex(obj => JSON.stringify(obj) === JSON.stringify(object));
+}
+
+function addToCart(){
+
+	if (quantity > 0) {
+		document.getElementById('promptQuantity').innerHTML = '';
+		let data = window.localStorage.getItem('cart');
+
+		let jsonData = data ? JSON.parse(data) : [];
+
+		if (!Array.isArray(jsonData)) {
+			jsonData = [jsonData];
+		}
+
+		const cartItem = {
+			id: id,
+			category: category,
+			sub: sub,
+			name: product.name,
+			variation: option,
+			price: price,
+			quantity: quantity
+		}
+
+		let indexVal = checkInnerValueExists(jsonData, 'id', 'variation', id, option);
+		if (indexVal === -1) {
+			jsonData.push(cartItem);
+		}else{
+			let obj = jsonData[indexVal];
+			obj.quantity = obj.quantity + quantity;
+			jsonData[indexVal] = obj;
+		}
+
+		console.log(jsonData);
+		window.localStorage.setItem('cart', JSON.stringify(jsonData));
+	}else{
+		document.getElementById('promptQuantity').innerHTML = 'Quantity must be atleast 1';
+	}
+	
+}
 display();

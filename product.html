@@ -11,10 +11,8 @@
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
   <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
-
 </head>
 <body>
-
   <nav>
     <img id="logo" src="./media/floraco.png"/>
     <ul class="nav_list">
@@ -65,10 +63,11 @@
 
         <div class="qtycontrol">
           <button type="button" class="qty-btn" id="decrease" onclick="decrease();">-</button>
-          <h2 type="number" id="quantity">0</h2>
+          <input type="number" id="quantity" value="1">
           <button type="button" class="qty-btn" id="increase" onclick="increase();">+</button>
         </div>
-        <button type="submit" class="add-cart">Add to Cart</button>
+        <p id="promptQuantity" style="color: red;"></p>
+        <button type="submit" class="add-cart" onclick="addToCart();">Add to Cart</button>
       </div>
     </div>
   </middle>

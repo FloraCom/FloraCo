@@ -47,7 +47,6 @@ function cancelInformation(){
 
 function updateFields(){
 	let data = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'data')));
-	console.log(String(window.localStorage.getItem('FCUS00003data')+'data'));
 	if(data){
 		document.getElementById('name').value = data.name;
 		document.getElementById('email').value = data.email;
