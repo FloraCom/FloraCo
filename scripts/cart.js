@@ -26,7 +26,7 @@ function display(){
 						let varIndex = getIndex(product.variations, cartItem.variation);
 						row.innerHTML = `
 				            <td>
-				              <img src="${product.variations[varIndex].image}" class="product-img" />
+				              <img src="${product.variations[varIndex].image}" class="product-img"  onerror="src='./media/fc.png';" />
 				            </td>
 				            <td class="product-info">
 				              <div class="product-box">
