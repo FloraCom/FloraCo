@@ -39,12 +39,43 @@
       <li class="nav_li"><a href="login.html">Profile</a></li>
     </ul>
   </aside>
+
+    <div class="offer">
+      <marquee>
+      <h3 id="offerText"> • FLORACO GRAND OPENING OFFER • FLAT 10% OFF ON FIRST ORDER • FREE SHIPPING ABOVE 599 • </h3>
+      </marquee>
+    </div>
+
+  <div class="links">
+    <div class="flow" id="flow">
+      <div class="link">
+        <a href="" title="">Home </a>
+        <div class="arrow">
+          <i class="fi fi-ss-angle-small-right"></i>
+        </div>
+      </div>
+      <div class="link">
+        <a href="" title="">Plant </a>
+        <div class="arrow">
+          <i class="fi fi-ss-angle-small-right"></i>
+        </div>
+      </div>
+      <div class="link">
+        <a href="" title="">Flowering</a>
+        <div class="arrow">
+          <i class="fi fi-ss-angle-small-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <middle class="container" id="container">
     <div class="left">
       <div class="imgCard">
         <img alt="Product Image" class="product-image" onerror="src='./media/fc.png';" id="prdImg"/>
       </div>
     </div>
+
     <div class="right">
 
       <div class="product-details">
@@ -63,7 +94,7 @@
 
         <div class="qtycontrol">
           <button type="button" class="qty-btn" id="decrease" onclick="decrease();">-</button>
-          <input type="number" id="quantity" value="1">
+          <input type="number" id="quantity" value="1" onchange="changeQuantity();">
           <button type="button" class="qty-btn" id="increase" onclick="increase();">+</button>
         </div>
         <p id="promptQuantity" style="color: red;"></p>
@@ -71,6 +102,9 @@
       </div>
     </div>
   </middle>
+
+  <div id="toast"></div>
+
   <div class="error" id="error">
     <img src="./media/no-product.png" alt="">
     <h2>Product Not Found :(</h2>

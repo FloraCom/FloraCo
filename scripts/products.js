@@ -30,6 +30,12 @@ let quantity = 0;
 let products = [];
 let displayAmount = 15;
 
+function filterData(){
+	const arr = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }, { id: 3, name: 'Charlie' }];
+	const valueToRemove = 'Bob';
+	const newArr = arr.filter(obj => obj.name !== valueToRemove);
+}
+
 function noProduct(){
 	document.getElementById('productsContainer').style.display = 'none';
 	document.getElementById('error').style.display = 'flex';
@@ -75,10 +81,12 @@ function populateContent(products) {
 	}
 
 	products.slice(0, displayAmount).forEach((obj, index) => {
+
+		let variant = obj.variations[0].id;
 		const li = document.createElement('li');
 		li.className = 'productCard';
 		li.innerHTML = `
-		<a href="product.html?category=${obj.parentCategory}&sub=${obj.subCategory}&id=${obj.id}" class="cardA">
+		<a href="product.html?category=${obj.parentCategory}&sub=${obj.subCategory}&id=${obj.id}&option=${variant}" class="cardA">
 		<div class="card">
 		<div class="cardImg">
 		<img class="cardImageView" src="${obj.variations[0].image}" onerror="src='./media/fc.png';">
@@ -169,6 +177,11 @@ function setHeading(){
 		content.appendChild(div);
 	});
 	document.getElementById('search').placeholder='Search '+String(category).replaceAll("-", " ");
+
+	if (sub) {
+		document.getElementById('filter').value = sub;
+	}
+
 }
 
 function display() {

@@ -22,7 +22,7 @@ function decrease(){
 	if (quantity > 1){
 		--quantity;
 	}
-	document.getElementById('quantity').innerHTML = quantity;
+	document.getElementById('quantity').value = quantity;
 	if (quantity >= 50) {
 		document.getElementById('quantity').style.color="green";
 		document.getElementById('quantity').style.fontSize="1.2rem";
@@ -34,7 +34,7 @@ function decrease(){
 
 function increase(){
 	++quantity;
-	document.getElementById('quantity').innerHTML = quantity;
+	document.getElementById('quantity').value = quantity;
 	if (quantity >= 50) {
 		document.getElementById('quantity').style.color="green";
 		document.getElementById('quantity').style.fontSize="1.2rem";
@@ -51,18 +51,19 @@ function noProduct(){
 
 function changeVariation(variant, vari){
 	variation = variant;
-	option = vari[variant].id;
-	console.log(option);
+	option = JSON.parse(vari).id;
 	showData(product);
 }
 
 function populateContent(product) {
 
 	if (option) {
-		variation = checkValueIndex(product.variations, option);
+		variation = checkObjectIndex(product.variations, option);
 	}else{
 		option = product.variations[variation].id;
 	}
+
+	console.log(product.variations[variation].price);
 
 	price = parseInt(product.variations[variation].price);
 
@@ -84,7 +85,7 @@ function populateContent(product) {
 			`;
 		} else {
 			label.innerHTML = `
-				<input type="radio" name="size-radio" onclick="changeVariation(${index}, ${vari});"/>
+				<input type="radio" name="size-radio" onclick="changeVariation(${index}, '${JSON.stringify(vari).replace(/"/g, '&quot;')}');"/>
 				<p>${vari['name']}</p>
 			`;
 		}
@@ -101,6 +102,27 @@ function showData(product){
 	}
 }
 
+function setLinks(){
+
+	let links = [{"name": "Home", "link": "index.html"}, {"name": capitalizeFirstLetter(String(category).replaceAll('-', " ")), "link": "products.html?category="+category}, {"name": capitalizeFirstLetter(String(sub).replaceAll('-', " ")), "link": "products.html?category="+category+'&sub='+sub}];
+
+	let linkDoc = document.getElementById('flow');
+	linkDoc.innerHTML = '';
+
+	links.forEach((data) => {
+		let link = document.createElement('div');
+		link.className = "link";
+		link.innerHTML = `
+	        <a href="${data.link}" title="">${data.name}</a>
+	        <div class="arrow">
+	          <i class="fi fi-ss-angle-small-right"></i>
+	        </div>
+		`;
+		linkDoc.appendChild(link);
+	});
+
+}
+
 function display() {
   fetch("./assets/products.json")
   	.then((res) => {if (!res.ok) {} return res.json();})
@@ -108,7 +130,8 @@ function display() {
 
   		if (category && sub && id) {
   			try{
-  				product = Object.values(data)[0]['all'][category][sub][id];
+  				setLinks();
+  				product = data['products']['all'][category][sub][id];
 	  			showData(product);
   			}catch(error){
   				console.log(error);
@@ -119,6 +142,10 @@ function display() {
   		}
   
 	}).catch();
+}
+
+function capitalizeFirstLetter(val) {
+	return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
 function checkValueExists(arr, key, value) {
@@ -139,8 +166,13 @@ function checkInnerValueExists(arr, key, subKey, value1, value2) {
 	return ind;
 }
 
+function changeQuantity(){
+	quantity = parseInt(document.getElementById('quantity').value);
+	console.log(quantity);
+}
+
 function checkObjectIndex(arr, object) {
-	return arr.findIndex(obj => JSON.stringify(obj) === JSON.stringify(object));
+	return arr.findIndex(obj => obj.id === object);
 }
 
 function addToCart(){
@@ -170,15 +202,27 @@ function addToCart(){
 			jsonData.push(cartItem);
 		}else{
 			let obj = jsonData[indexVal];
-			obj.quantity = obj.quantity + quantity;
+			obj.quantity = parseInt(obj.quantity) + quantity;
 			jsonData[indexVal] = obj;
 		}
 
-		console.log(jsonData);
+
+
+		console.log(cartItem);
+
+		showToast(cartItem.name+' added to cart');
 		window.localStorage.setItem('cart', JSON.stringify(jsonData));
 	}else{
 		document.getElementById('promptQuantity').innerHTML = 'Quantity must be atleast 1';
 	}
 	
 }
+
+function showToast(message) {
+  var toast = document.getElementById("toast");
+  toast.innerHTML = message;
+  toast.classList.add("show");
+  setTimeout(function(){ toast.classList.remove("show"); }, 2000);
+}
+
 display();

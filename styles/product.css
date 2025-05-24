@@ -139,9 +139,84 @@ aside{
   font-size: 1.3rem;
 }
 
+.offer{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-c);
+}
+
+#offerText{
+  margin: 0;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.5rem;
+  color: var(--background-c);
+}
+
+.links{
+  background-color: var(--background-c);
+  margin: 0;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+.flow{
+  display: flex;
+}
+
+.link {
+  display: flex;
+  align-items: start;
+  gap: 5px;
+}
+
+.link a{
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  text-align: start;
+  color: var(--primary-c);
+}
+
+.link a:hover{
+  text-decoration: underline;
+}
+
+.link .arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow i{
+  font-size: 1.2rem;
+}
+
+
+#toast {
+  display: none;
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  transform: translate(-50%);
+}
+
 middle{
   width: 100%;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
   display: flex;
 }
 
@@ -288,6 +363,15 @@ middle{
   align-items: center;
   justify-content: center;
   background-color: white;
+}
+
+
+.qtycontrol input[type=number]::-webkit-inner-spin-button, 
+.qtycontrol input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
 
 .qtycontrol button{
@@ -468,6 +552,33 @@ middle{
 
 .cardA button:hover{
   background-color: var(--secondary-c);
+}
+
+#toast.show {
+  display: block;
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }
 
 .error{
