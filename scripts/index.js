@@ -34,7 +34,7 @@ function showData(products){
 							<h3 class="price">${obj.variations[0].price}</h3>
 						</div>
 					</div>
-					<button>Add To Cart</button>
+					<button>Details</button>
 				</a>
 			`;
 			content.appendChild(li);

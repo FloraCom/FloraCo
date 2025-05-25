@@ -377,6 +377,10 @@ option{
 	border-radius: 8px;
 }
 
+.productCard:hover{
+	background-color: #eee;
+}
+
 .cardA {
 	text-decoration: none;
 	height: 100%;
@@ -467,6 +471,7 @@ option{
 	color: white;
 	background-color: var(--primary-c);
 	border: none;
+	display: none;
 	margin: 10px 0px;
 	padding: 8px;
 	font-family: 'Lato', sans-serif;

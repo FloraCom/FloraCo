@@ -98,7 +98,7 @@ function populateContent(products) {
 		<h3 class="price">${obj.variations[0].price}</h3>
 		</div>
 		</div>
-		<button>Add To Cart</button>
+		<button onclick="alert('${obj.name} added to cart');">Add To Cart</button>
 		</a>
 		`;
 		content.appendChild(li);

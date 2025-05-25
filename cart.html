@@ -95,7 +95,7 @@
 
           <div class="coupon-input">
             <input type="text" id="coupon-input" placeholder="Enter coupon" />
-            <button class="apply-btn">Apply</button>
+            <button class="apply-btn" id="apply" onclick="applyCoupon();">Apply</button>
           </div>
 
 
@@ -105,9 +105,9 @@
             <input type="number" id="phone" placeholder="Phone No*" maxlength="10" minlength="10" />
             <input type="text" id="street" placeholder="Street, D.No*" />
             <input type="text" id="locality" placeholder="Locality, P.O*" />
-            <input type="number" id="pin" placeholder="Pincode*"/>
-            <textarea placeholder="Full Address"></textarea>
-            <input type="text" value="India" disabled="true" />
+            <input type="text" id="pin" placeholder="Pincode*"/>
+            <textarea placeholder="Full Address" id="fullAdd"></textarea>
+            <input type="text" id="country" value="India" disabled="true" />
           </div>
 
           <div class="payments">

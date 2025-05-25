@@ -188,7 +188,6 @@ function checkObjectIndex(arr, object) {
 
 function addToCart(){
 
-
 	quantity = parseInt(document.getElementById('quantity'+id).value);
 	if (quantity > 0) {
 		document.getElementById('promptQuantity').innerHTML = '';

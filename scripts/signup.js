@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
-import {getDatabase, runTransaction, ref, child, get, set, update, remove} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+import { getDatabase, runTransaction, ref, child, get, set, update, remove, off } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
 
 const firebaseConfig = {
@@ -81,7 +81,9 @@ async function addUser(db, user){
 							window.localStorage.setItem((userId+"data"), dataString);
 							window.localStorage.setItem("FloraCoUserLogIn", "true");
 							window.localStorage.setItem('UserID', userId);
-							window.location.replace('account.html')
+							window.location.replace('account.html');
+							off(child(ref(rdb), 'numericals/users'));
+							off(ref(rdb, 'users/'+user.uid));
 						})
 						.catch((error)=>{
 							console.log('Er'+error);

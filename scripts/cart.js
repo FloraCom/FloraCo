@@ -86,12 +86,6 @@ function increase(cart, index){
 
 	let item = document.getElementById(data.id+data.variation+'quantity');
 	let qty = parseInt(item.value);
-/*
-	if (qty <= 0) {
-		showToast('Quantity should be atleast 1');
-		item.value = 1;
-	}*/
-
 	item.value = qty+1;
 	changeQuantity(item, JSON.stringify(cart), index);
 }
@@ -144,7 +138,6 @@ function changeQuantity(item, cart, index) {
 	display();
 }
 
-
 function updateSummary(cart){
 
 	document.getElementById('item-count').innerHTML = cart.length;
@@ -163,9 +156,70 @@ function updateSummary(cart){
 
 	document.getElementById('discount').innerHTML = discount;
 	document.getElementById('final-price').innerHTML = total-discount;
-	document.getElementById('checkout').innerHTML = `Checkout (Rs.${total-discount})`;
+	document.getElementById('checkout').innerHTML = `Checkout (Rs.${document.getElementById('final-price').innerHTML})`;
 
 }
+
+function applyCoupon(){
+	let coupons = {
+		'FLAT10': 10,
+		'IPL25': 25,
+		'CHARAN100': 100,
+		'ICE50': 50,
+		'ONE8': 18
+	};
+
+	let couponIN = String(document.getElementById('coupon-input').value).toUpperCase();
+	let couponStatus = document.getElementById('coupon-status');
+	let offer  = coupons[couponIN];
+
+	if (offer) {
+		let final = document.getElementById('final-price');
+		let discount = parseInt(((parseInt(final.innerHTML)*parseInt(offer))/100));
+		let total = parseInt(final.innerHTML)-discount;
+
+		couponStatus.innerHTML = `Applied ${offer}% off<br>(- Rs.${discount})`;
+		couponStatus.style.color = 'green';
+		couponStatus.style.textAlign = 'end';
+		final.innerHTML = parseInt(total);
+		document.getElementById('checkout').innerHTML = `Checkout (Rs.${document.getElementById('final-price').innerHTML})`;
+
+	}else{
+		couponStatus.innerHTML = 'Invalid Coupon';
+		couponStatus.style.color = 'red';
+	}
+
+}
+
+function checkout(){
+
+	const selectedRadio = document.querySelector('input[name="payment"]:checked');
+	const selectedValue2 = selectedRadio ? selectedRadio.value : undefined;
+
+
+	let name = String(document.getElementById('name').value);
+	let phone = parseInt(document.getElementById('phone').value);
+	let street = String(document.getElementById('street').value);
+	let locality = String(document.getElementById('locality').value);
+	let pincode = String(document.getElementById('pin').value);
+	let fullAdd = String(document.getElementById('fullAdd').value);
+	let country = String(document.getElementById('country').value);
+
+	if (name && phone && street && locality && pincode && country) {
+		showToast('Checkout');
+		if (selectedValue2 === undefined) {
+			showToast('Select Payment Method');
+		}
+	}else{
+		showToast('Fill the (*) fields and cross check');
+	}
+
+}
+
+
+window.addEventListener('storage', function(event) {
+	display();
+});
 
 document.getElementById('menu').addEventListener('click', ()=>{
 	document.getElementById('asideMenu').classList.toggle('asideOpen');
@@ -181,7 +235,7 @@ document.getElementById('checkout').addEventListener('click', ()=>{
 		document.getElementById("left").classList.toggle("openMenu");
 		document.querySelector(".summary-box").style.display = "block";	
 	} else {
-		alert('checkout!!!');
+		checkout();
 	}
 });
 
