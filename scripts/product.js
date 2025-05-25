@@ -22,25 +22,25 @@ function decrease(){
 	if (quantity > 1){
 		--quantity;
 	}
-	document.getElementById('quantity').value = quantity;
+	document.getElementById('quantity'+id).value = quantity;
 	if (quantity >= 50) {
-		document.getElementById('quantity').style.color="green";
-		document.getElementById('quantity').style.fontSize="1.2rem";
+		document.getElementById('quantity'+id).style.color="green";
+		document.getElementById('quantity'+id).style.fontSize="1.2rem";
 	} else {
-		document.getElementById('quantity').style.color="#000";
-		document.getElementById('quantity').style.fontSize="1rem";
+		document.getElementById('quantity'+id).style.color="#000";
+		document.getElementById('quantity'+id).style.fontSize="1rem";
 	}
 }
 
 function increase(){
 	++quantity;
-	document.getElementById('quantity').value = quantity;
+	document.getElementById('quantity'+id).value = quantity;
 	if (quantity >= 50) {
-		document.getElementById('quantity').style.color="green";
-		document.getElementById('quantity').style.fontSize="1.2rem";
+		document.getElementById('quantity'+id).style.color="green";
+		document.getElementById('quantity'+id).style.fontSize="1.2rem";
 	} else {
-		document.getElementById('quantity').style.color="#333333";
-		document.getElementById('quantity').style.fontSize="1rem";
+		document.getElementById('quantity'+id).style.color="#333333";
+		document.getElementById('quantity'+id).style.fontSize="1rem";
 	}
 }
 
@@ -64,6 +64,8 @@ function populateContent(product) {
 	}
 
 	console.log(product.variations[variation].price);
+
+	setQuantity();
 
 	price = parseInt(product.variations[variation].price);
 
@@ -120,7 +122,16 @@ function setLinks(){
 		`;
 		linkDoc.appendChild(link);
 	});
+}
 
+function setQuantity(){
+	let qtyControl = document.getElementById('qtyControl');
+	qtyControl.innerHTML = `
+
+          <button type="button" class="qty-btn" id="decrease" onclick="decrease();">-</button>
+          <input type="number" id="quantity${id}" value="1" onchange="changeQuantity();">
+          <button type="button" class="qty-btn" id="increase" onclick="increase();">+</button>
+	`;	
 }
 
 function display() {
@@ -167,7 +178,7 @@ function checkInnerValueExists(arr, key, subKey, value1, value2) {
 }
 
 function changeQuantity(){
-	quantity = parseInt(document.getElementById('quantity').value);
+	quantity = parseInt(document.getElementById('quantity'+id).value);
 	console.log(quantity);
 }
 
@@ -177,6 +188,8 @@ function checkObjectIndex(arr, object) {
 
 function addToCart(){
 
+
+	quantity = parseInt(document.getElementById('quantity'+id).value);
 	if (quantity > 0) {
 		document.getElementById('promptQuantity').innerHTML = '';
 		let data = window.localStorage.getItem('cart');

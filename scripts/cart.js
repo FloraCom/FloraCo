@@ -2,8 +2,6 @@ display();
 
 function display(){
 
-
-
 	let data = window.localStorage.getItem('cart');
 
 	let table = document.getElementById('tableBody');
@@ -143,7 +141,7 @@ function changeQuantity(item, cart, index) {
 	cart[index] = data;
 	document.getElementById(data.id+data.variation+'price').innerHTML = getPrice(JSON.stringify(data));
 	window.localStorage.setItem('cart', JSON.stringify(cart));
-	updateSummary(cart);
+	display();
 }
 
 

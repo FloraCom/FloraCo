@@ -193,7 +193,7 @@ function display() {
 	.then((data) => {
 
 		try{
-			let cat = Object.values(data)[0]['all'][category];
+			let cat = data['products']['all'][category];
 			products = [];
 
 			if (category && sub && sub !== "all") {
