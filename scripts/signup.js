@@ -81,7 +81,14 @@ async function addUser(db, user){
 							window.localStorage.setItem((userId+"data"), dataString);
 							window.localStorage.setItem("FloraCoUserLogIn", "true");
 							window.localStorage.setItem('UserID', userId);
-							window.location.replace('account.html');
+
+							let cart = window.localStorage.getItem("FloraCoCart");
+
+							if (cart && cart !== null && cart !== undefined) {
+									window.location.replace('cart.html');
+							}else {
+								window.location.replace('account.html');
+							}
 							off(child(ref(rdb), 'numericals/users'));
 							off(ref(rdb, 'users/'+user.uid));
 							off(rdb);
