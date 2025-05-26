@@ -84,6 +84,8 @@ async function addUser(db, user){
 							window.location.replace('account.html');
 							off(child(ref(rdb), 'numericals/users'));
 							off(ref(rdb, 'users/'+user.uid));
+							off(rdb);
+							off(db);
 						})
 						.catch((error)=>{
 							console.log('Er'+error);

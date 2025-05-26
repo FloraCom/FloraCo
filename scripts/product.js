@@ -191,7 +191,7 @@ function addToCart(){
 	quantity = parseInt(document.getElementById('quantity'+id).value);
 	if (quantity > 0) {
 		document.getElementById('promptQuantity').innerHTML = '';
-		let data = window.localStorage.getItem('cart');
+		let data = window.localStorage.getItem('FloraCoCart');
 
 		let jsonData = data ? JSON.parse(data) : [];
 
@@ -223,7 +223,7 @@ function addToCart(){
 		console.log(cartItem);
 
 		showToast(cartItem.name+' added to cart');
-		window.localStorage.setItem('cart', JSON.stringify(jsonData));
+		window.localStorage.setItem('FloraCoCart', JSON.stringify(jsonData));
 	}else{
 		document.getElementById('promptQuantity').innerHTML = 'Quantity must be atleast 1';
 	}

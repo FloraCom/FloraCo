@@ -46,7 +46,15 @@ if (window.localStorage.getItem("FloraCoUserLogIn") === "false" || window.localS
 			        window.localStorage.setItem((id+"data"), dataString);
 			        window.localStorage.setItem('UserID', id);
 					window.localStorage.setItem("FloraCoUserLogIn", "true");
-					window.location.replace('account.html');
+
+
+					let cart = window.localStorage.getItem("FloraCoCart");
+
+					if (cart && cart !== null && cart !== undefined) {
+							window.location.replace('cart.html');
+					}else {
+						window.location.replace('account.html');
+					}
 			    }).catch((error) => {
 			    	console.log(error);
 			    });
