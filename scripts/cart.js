@@ -18,6 +18,8 @@ display();
 
 function checkout(){
 
+	// document.getElementById('loader').style.display = "flex";
+
 	const selectedRadio = document.querySelector('input[name="payment"]:checked');
 	const selectedValue2 = selectedRadio ? selectedRadio.value : undefined;
 
@@ -148,9 +150,6 @@ async function updateProduct(rdb, db, orderID){
 
 async function updateOrder(db, cart, order, orderID){
 
-
-	console.log(order);
-
 	if (order) {
 		var reff = doc(db, "orders", orderID);
 
@@ -158,6 +157,7 @@ async function updateOrder(db, cart, order, orderID){
 		.then(()=>{
 			window.localStorage.setItem('FloraCoCart', '[]');
 			showToast('Order Placed '+orderID);
+			// document.getElementById('loader').style.display = "none";
 			display();
 		})
 		.catch((error)=>{

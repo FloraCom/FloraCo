@@ -9,7 +9,7 @@ measurementId: "G-2T9X6F21LB"
 };
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { getAuth, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signOut, deleteUser, reauthenticateWithPopup } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 import { getFirestore, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
 var app = initializeApp(firebaseConfig);
@@ -64,11 +64,15 @@ function cancelInformation(){
 function updateFields(){
 	let data = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'address')));
 	let userData = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'data')));
-	// console.log(data, userData);
-	if(data && userData){
-		// console.log(data, userData);
+
+	console.log(userData);
+
+	if (userData) {
 		document.getElementById('name').value = userData.name;
 		document.getElementById('email').value = userData.email;
+	}
+
+	if(data){
 		document.getElementById('phone').value = data.phone ? data.phone : '';
 		document.getElementById('street').value = data.street ? data.street : '';
 		document.getElementById('locality').value = data.locality ? data.locality : '';
@@ -82,7 +86,6 @@ function saveUsername(){
 	if(userData && name.trim() !== ""){
 		userData.name = name;
 	}
-
 	window.localStorage.setItem(String(window.localStorage.getItem('UserID')+'data'), JSON.stringify(userData));
 	updateFields();
 	cancelAccount();
@@ -146,30 +149,46 @@ function deleteAccount(){
 	deleteUser(user).then(() => {
 
 		let userId = window.localStorage.getItem('UserID');
-		deleteDocument('users', userId);
-		showLongToast('Your account has been successfully deleted. Any pending orders will be delevered without fail. Kindly receive the orders on time');
 		window.localStorage.clear();
-		window.location.replace('login.html');
+		
+		showLongToast('Your account has been successfully deleted. Any pending orders will be delevered without fail. Kindly receive the orders on time');
+		deleteDocument('users', userId, (error) => {
+			if (error) {
+
+			}else{
+				window.location.replace('index.html');
+			}
+		});
 
 	}).catch((error) => {
 		console.log(error);
-	  showToast('Error Delete Account. Plase try again or Contact floracompanydot@gmail.com', error);
+		reauthWithGoogle();
 	});
 }
 
-const deleteDocument = async (collectionName, documentId) => {
+const deleteDocument = async (collectionName, documentId, callBack) => {
   try {
   	let db = getFirestore(app);
     const docRef = doc(db, collectionName, documentId);
     await deleteDoc(docRef);
+    callBack(null);
     console.log(`Document with ID ${documentId} deleted successfully from collection ${collectionName}`);
   } catch (error) {
-    console.error("Error deleting document:", error);
+  	callBack(error);
+    console.log("Error deleting document:", error);
   }
 };
 
 function reauthWithGoogle() {
-    return reauthenticateWithPopup(loginAuth, googleProvider)
+
+	reauthenticateWithPopup(auth.currentUser, new GoogleAuthProvider())
+      .then(() => {
+      		deleteAccount();
+      })
+      .catch((error) => {
+        console.log(error);
+	  	showToast('Error Delete Account. Plase try again or Contact floracompanydot@gmail.com');
+	});
 }
 
 updateFields();

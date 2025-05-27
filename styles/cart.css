@@ -718,6 +718,38 @@ footer{
   padding: 0 5px;
 }
 
+
+#loader{
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-c);
+  position: absolute;
+  pointer-events: none;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#loader img{
+  width: 200px;
+  transform: scale(1);
+  transform: translate(0, -50%);
+  transition: load ease infinite;
+}
+
+@keyframes load{
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.3);
+  }
+}
+
+
+
+
+
 @media (max-width: 830px) {
 
   .nav_list, #user, #cart{
