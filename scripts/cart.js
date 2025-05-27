@@ -40,6 +40,11 @@ function checkout(){
 	};
 
 	if (name && phone && street && locality && pincode && country) {
+
+		let userId = window.localStorage.getItem('UserID');
+
+		window.localStorage.setItem(userId+'address', JSON.stringify(address));
+
 		if (selectedValue2 === undefined) {
 			showToast('Select Payment Method');
 		}else{

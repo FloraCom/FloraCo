@@ -56,7 +56,7 @@
             <p class="profile-p">FAQs</p>
             </a>
           </li>
-          <li class="profile-a">
+          <li class="profile-a" id="logout">
             <i class="fi fi-ss-exit"></i>
             <p class="profile-p">Logout</p>
           </li>
@@ -66,7 +66,7 @@
     <div class="right">
       <div class="rightContent">
         <h1>Account Settings</h1>
-        <p class="description">This information is stored securely with us only username is visible on the shipment</p>
+        <p class="description">This information is used to contact you and (only username) is visible on the shipment</p>
         <div class="form-group">
           <label for="name">Username</label>
           <input type="name" id="name" placeholder="e.g. Dave Jones" disabled="true">
@@ -77,9 +77,9 @@
         </div>
 
         <div class="commit">
-          <button class="button edit" onclick="editAccount();" id="aedit">Edit</button>
-          <button class="button save" onclick="" id="asave">Save</button>
-          <button class="button cancel" onclick="cancelAccount();" id="acancel">Cancel</button>
+          <button class="button edit" id="aedit">Edit</button>
+          <button class="button save" id="asave">Save</button>
+          <button class="button cancel" id="acancel">Cancel</button>
         </div>
         <br>
         <br>
@@ -107,19 +107,22 @@
         </div>
 
         <div class="commit">
-          <button class="button edit" onclick="editInformation();" id="iedit">Edit</button>
-          <button class="button save" onclick="" id="isave">Save</button>
-          <button class="button cancel" onclick="cancelInformation();" id="icancel">Cancel</button>
+          <button class="button edit" id="iedit">Edit</button>
+          <button class="button save" id="isave">Save</button>
+          <button class="button cancel" id="icancel">Cancel</button>
         </div>
         <br>
         <br>
         <h1>Account Deletion</h1>
-        <p class="description">Once deleted the account cannot be recovered by any means or form.</p>
+        <p class="description">Once deleted the account cannot be recovered by any means or form.<br>Note: Any pending orders from this account will be delivered without fail. Kindly receive the order on time.</p>
         <div class="commit">
-          <button class="button delete" onclick="" id="delete">Delete My Account</button>
+          <button class="button delete" id="deleteAccount">Delete My Account</button>
         </div>
       </div>
   </div>
-  <script src="scripts/account.js" type="text/javascript" charset="utf-8" async defer></script>
+
+  <div id="toast"></div>
+
+  <script src="scripts/account.js" type="module" charset="utf-8" async defer></script>
 </body>
 </html>

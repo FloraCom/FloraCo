@@ -50,7 +50,7 @@ if (window.localStorage.getItem("FloraCoUserLogIn") === "false" || window.localS
 					goOffline(db);
 					let cart = window.localStorage.getItem("FloraCoCart");
 
-					if (cart && cart !== null && cart !== undefined) {
+					if (cart && cart !== null && cart !== undefined && cart !== "" && cart !== "[]") {
 							window.location.replace('cart.html');
 					}else {
 						window.location.replace('account.html');

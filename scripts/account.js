@@ -1,3 +1,20 @@
+const firebaseConfig = {
+apiKey: "AIzaSyDg_cruaRr3dHWuE8Ddzxk6OXlWKE445kA",
+authDomain: "floraco-main.firebaseapp.com",
+projectId: "floraco-main",
+storageBucket: "floraco-main.firebasestorage.app",
+messagingSenderId: "675774592408",
+appId: "1:675774592408:web:765b6016f902858bb267ed",
+measurementId: "G-2T9X6F21LB"
+};
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+import { getAuth, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+import { getFirestore, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+var app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 function editAccount(){
 	document.getElementById('aedit').style.display="none";
 	document.getElementById('asave').style.display="block";
@@ -27,7 +44,6 @@ function cancelAccount(){
 	document.getElementById('name').disabled=true;
 	document.getElementById('name').style.borderColor="#ccc";
 	updateFields();
-	window.localStorage.setItem("FloraCoUserLogIn", "false");
 }
 
 function cancelInformation(){
@@ -46,10 +62,13 @@ function cancelInformation(){
 }
 
 function updateFields(){
-	let data = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'data')));
-	if(data){
-		document.getElementById('name').value = data.name;
-		document.getElementById('email').value = data.email;
+	let data = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'address')));
+	let userData = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'data')));
+	// console.log(data, userData);
+	if(data && userData){
+		// console.log(data, userData);
+		document.getElementById('name').value = userData.name;
+		document.getElementById('email').value = userData.email;
 		document.getElementById('phone').value = data.phone ? data.phone : '';
 		document.getElementById('street').value = data.street ? data.street : '';
 		document.getElementById('locality').value = data.locality ? data.locality : '';
@@ -57,4 +76,123 @@ function updateFields(){
 	}
 }
 
+function saveUsername(){
+	let userData = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'data')));
+	let name = document.getElementById('name').value;
+	if(userData && name.trim() !== ""){
+		userData.name = name;
+	}
+
+	window.localStorage.setItem(String(window.localStorage.getItem('UserID')+'data'), JSON.stringify(userData));
+	updateFields();
+	cancelAccount();
+}
+
+function saveInfo(){
+
+	let name = String(document.getElementById('name').value);
+	let phone = String(document.getElementById('phone').value);
+	let street = String(document.getElementById('street').value);
+	let locality = String(document.getElementById('locality').value);
+	let pincode = String(document.getElementById('pin').value);
+	let country = String(document.getElementById('country').value);
+
+	let address = {
+		name: name,
+		phone: phone,
+		street: street,
+		locality: locality,
+		pincode: pincode,
+		fullAdd: '',
+		country: country
+	};
+
+	let userId = window.localStorage.getItem('UserID');
+	window.localStorage.setItem(userId+'address', JSON.stringify(address));
+	
+	updateFields();
+	cancelInformation();
+}
+
+function logOut(){
+	signOut(auth).then(() => {
+		window.localStorage.setItem('FloraCoUserLogIn', "false");
+		showToast('Logged out successfully');
+		window.location.replace('index.html');
+	}).catch((error) => {
+		showToast('Oops!! Please try again later');
+	});
+}
+
+function showToast(message) {
+  var toast = document.getElementById("toast");
+  toast.innerHTML = message;
+  toast.classList.add("show");
+  setTimeout(function(){ toast.classList.remove("show"); }, 2000);
+}
+
+
+function showLongToast(message) {
+  var toast = document.getElementById("toast");
+  toast.innerHTML = message;
+  toast.classList.add("show");
+  setTimeout(function(){ toast.classList.remove("show"); }, 60000);
+}
+
+function deleteAccount(){
+
+	const user = auth.currentUser;
+
+	deleteUser(user).then(() => {
+
+		let userId = window.localStorage.getItem('UserID');
+		deleteDocument('users', userId);
+		showLongToast('Your account has been successfully deleted. Any pending orders will be delevered without fail. Kindly receive the orders on time');
+		window.localStorage.clear();
+		window.location.replace('login.html');
+
+	}).catch((error) => {
+		console.log(error);
+	  showToast('Error Delete Account. Plase try again or Contact floracompanydot@gmail.com', error);
+	});
+}
+
+const deleteDocument = async (collectionName, documentId) => {
+  try {
+  	let db = getFirestore(app);
+    const docRef = doc(db, collectionName, documentId);
+    await deleteDoc(docRef);
+    console.log(`Document with ID ${documentId} deleted successfully from collection ${collectionName}`);
+  } catch (error) {
+    console.error("Error deleting document:", error);
+  }
+};
+
+function reauthWithGoogle() {
+    return reauthenticateWithPopup(loginAuth, googleProvider)
+}
+
 updateFields();
+
+document.getElementById('deleteAccount').addEventListener('click', ()=>deleteAccount());
+
+document.getElementById('logout').addEventListener('click', ()=>logOut());
+
+
+document.getElementById('isave').addEventListener('click', ()=>saveInfo());
+
+
+document.getElementById('iedit').addEventListener('click', ()=>editInformation());
+
+
+document.getElementById('icancel').addEventListener('click', ()=>cancelInformation());
+
+
+document.getElementById('asave').addEventListener('click', ()=>saveUsername());
+
+
+document.getElementById('aedit').addEventListener('click', ()=>editAccount());
+
+
+document.getElementById('acancel').addEventListener('click', ()=>cancelAccount());
+

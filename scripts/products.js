@@ -272,4 +272,7 @@ function showMore() {
 }
 
 populateFilter();
+
+document.getElementById('sort').value = "2";
+
 display();

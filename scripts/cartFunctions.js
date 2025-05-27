@@ -82,11 +82,11 @@ export function updateSummary(cart){
 		discount = 0;
 	}
 
-
 	finalAmount = total-discount;
 	document.getElementById('discount').innerHTML = discount;
 	document.getElementById('final-price').innerHTML = finalAmount;
 	document.getElementById('checkout').innerHTML = `Checkout (Rs.${document.getElementById('final-price').innerHTML})`;
+	updateFields();
 	applyCoupon();
 }
 
@@ -203,4 +203,21 @@ export function getFinalAmount(){
 
 export function displayDetails(id){
 	document.getElementById(id).classList.toggle('open');
+}
+
+export function displayAnswer(id){
+	document.getElementById(id+'hr').classList.toggle('open');
+	document.getElementById(id+'p').classList.toggle('open');
+}
+
+export function updateFields(){
+	let data = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'address')));
+	let userData = JSON.parse(window.localStorage.getItem(String(window.localStorage.getItem('UserID')+'data')));
+	if(data && userData){
+		document.getElementById('name').value = userData.name;
+		document.getElementById('phone').value = data.phone ? data.phone : '';
+		document.getElementById('street').value = data.street ? data.street : '';
+		document.getElementById('locality').value = data.locality ? data.locality : '';
+		document.getElementById('pin').value = data.pincode ? data.pincode : '';
+	}
 }

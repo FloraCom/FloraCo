@@ -1,210 +1,3 @@
-let orders = [
-
-	{
-		id: "FCOR00001",
-		userId: "FCUS00001",
-		items: [
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			}],
-		placed: "123456789",
-		address: {
-			name: "Charan",
-			phone: "123456789",
-			street: "Satyakameswari street",
-			locality: "Kakinada",
-			pincode: "533003",
-			fullAdd: "",
-			country: "India"},
-		cost: 8000,
-		status: false	},
-	{
-		id: "FCOR00002",
-		userId: "FCUS00001",
-		items: [
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			}],
-		placed: "123456789",
-		address: {
-			name: "Charan",
-			phone: "123456789",
-			street: "Satyakameswari street",
-			locality: "Kakinada",
-			pincode: "533003",
-			fullAdd: "",
-			country: "India"},
-		cost: 8000,
-		status: false	},
-	{
-		id: "FCOR00003",
-		userId: "FCUS00001",
-		items: [
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			}],
-		placed: "123456789",
-		address: {
-			name: "Charan",
-			phone: "123456789",
-			street: "Satyakameswari street",
-			locality: "Kakinada",
-			pincode: "533003",
-			fullAdd: "",
-			country: "India"},
-		cost: 8000,
-		status: false	},
-	{
-		id: "FCOR00004",
-		userId: "FCUS00001",
-		items: [
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			},
-			{
-				id: "FCPS00001",
-				category: "plant",
-				sub: "aquatic",
-				name: "Tillandsia ionantha Guatemala Plant",
-				variation: "PLT-FR-PNK",
-				price: 399,
-				quantity: 3
-			}],
-		placed: "123456789",
-		address: {
-			name: "Charan",
-			phone: "123456789",
-			street: "Satyakameswari street",
-			locality: "Kakinada",
-			pincode: "533003",
-			fullAdd: "",
-			country: "India"},
-		cost: 8000,
-		status: false	}];
-
 const firebaseConfig = {
 apiKey: "AIzaSyDg_cruaRr3dHWuE8Ddzxk6OXlWKE445kA",
 authDomain: "floraco-main.firebaseapp.com",
@@ -216,11 +9,13 @@ measurementId: "G-2T9X6F21LB"
 };
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 import { displayDetails } from './cartFunctions.js';
 
 window.displayDetails = displayDetails;
+
+var app = initializeApp(firebaseConfig);
 
 try{
 	fetch("./assets/products.json")
@@ -253,7 +48,6 @@ async function updateList(products){
 	let ordersDoc = document.getElementById('orders');
 	ordersDoc.innerHTML = '';
 
-	var app = initializeApp(firebaseConfig);
 	let userId = window.localStorage.getItem("UserID");
 
 
@@ -355,3 +149,24 @@ function noProduct(){
 	document.getElementById('orders').style.display = 'none';
 	document.getElementById('error').style.display = 'flex';
 }
+
+function logOut(){
+	const auth = getAuth(app);
+	signOut(auth).then(() => {
+		window.localStorage.setItem('FloraCoUserLogIn', "false");
+		showToast('Logged out successfully');
+		window.location.replace('index.html');
+	}).catch((error) => {
+		showToast('Oops!! Please try again later');
+	});
+}
+
+function showToast(message) {
+  var toast = document.getElementById("toast");
+  toast.innerHTML = message;
+  toast.classList.add("show");
+  setTimeout(function(){ toast.classList.remove("show"); }, 2000);
+}
+
+
+document.getElementById('logout').addEventListener('click', ()=>logOut());
