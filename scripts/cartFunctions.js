@@ -44,12 +44,10 @@ export function decrease (cart, index)  {
 	changeQuantity(item, JSON.stringify(cart), index);
 }
 
-
 export function getPrice(cartItem){
 	cartItem = JSON.parse(cartItem);
 	return (cartItem.quantity*parseInt(cartItem.price));
 }
-
 
 export function showToast(message) {
   var toast = document.getElementById("toast");
@@ -101,10 +99,10 @@ export function applyCoupon(){
 		'ONE8': 18
 	};
 
-	let couponIN = String(document.getElementById('coupon-input').value).toUpperCase();
+	let couponIN = document.getElementById('coupon-input');
 	let couponStatus = document.getElementById('coupon-status');
-	let offer  = coupons[couponIN];
-
+	let coupon = String(couponIN.value).toUpperCase();
+	let offer  = coupons[coupon];
 	if (offer) {
 		let final = document.getElementById('final-price');
 		let discount = parseInt(((parseInt(finalAmount)*parseInt(offer))/100));
@@ -114,7 +112,10 @@ export function applyCoupon(){
 		couponStatus.style.color = 'green';
 		couponStatus.style.textAlign = 'end';
 		final.innerHTML = parseInt(finalAmount);
+
 		document.getElementById('checkout').innerHTML = `Checkout (Rs.${document.getElementById('final-price').innerHTML})`;
+		couponIN.disabled = true;
+		document.getElementById('apply').disabled = true;
 
 	}else{
 		couponStatus.innerHTML = 'Not Applied';
@@ -130,13 +131,12 @@ export function display(){
 
 	let data = window.localStorage.getItem('FloraCoCart');
 
-	let table = document.getElementById('tableBody');
-	table.innerHTML = '';
 
 	if (data) {
 		let cart = JSON.parse(data);
-		console.log(cart);
 		if (cart.length > 0) {
+			let table = document.getElementById('tableBody');
+			table.innerHTML = '';
 			cart.forEach((cartItem, index)=>{
 				let row = document.createElement('tr');
 				let id = cartItem.id;
@@ -199,4 +199,8 @@ export function noProduct(){
 
 export function getFinalAmount(){
 	return finalAmount;
+}
+
+export function displayDetails(id){
+	document.getElementById(id).classList.toggle('open');
 }

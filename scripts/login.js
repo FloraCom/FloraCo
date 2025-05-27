@@ -11,7 +11,7 @@ measurementId: "G-2T9X6F21LB"
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
-import { getDatabase, runTransaction, ref, child, get, set, update, remove} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+import { getDatabase, runTransaction, ref, child, get, set, update, remove, goOffline } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
 var app = initializeApp(firebaseConfig);
 
@@ -47,7 +47,7 @@ if (window.localStorage.getItem("FloraCoUserLogIn") === "false" || window.localS
 			        window.localStorage.setItem('UserID', id);
 					window.localStorage.setItem("FloraCoUserLogIn", "true");
 
-
+					goOffline(db);
 					let cart = window.localStorage.getItem("FloraCoCart");
 
 					if (cart && cart !== null && cart !== undefined) {
@@ -55,13 +55,12 @@ if (window.localStorage.getItem("FloraCoUserLogIn") === "false" || window.localS
 					}else {
 						window.location.replace('account.html');
 					}
+
 			    }).catch((error) => {
 			    	console.log(error);
 			    });
 
 			}
-
-
 
 		}).catch((error) => {
 			const errorCode = error.code;

@@ -22,7 +22,7 @@ function checkout(){
 	const selectedValue2 = selectedRadio ? selectedRadio.value : undefined;
 
 	let name = String(document.getElementById('name').value);
-	let phone = parseInt(document.getElementById('phone').value);
+	let phone = String(document.getElementById('phone').value);
 	let street = String(document.getElementById('street').value);
 	let locality = String(document.getElementById('locality').value);
 	let pincode = String(document.getElementById('pin').value);
@@ -120,19 +120,13 @@ async function updateProduct(rdb, db, orderID){
 			items: [],
 			placed: String(new Date().getTime()),
 			address: address,
-			cost: getFinalAmount()
+			cost: getFinalAmount(),
+			status: false
 		};
 
 		cart.forEach((cartItem, index)=>{
 
-			let item = {
-				item: cartItem.id,
-				variation: cartItem.variation,
-				quantity: cartItem.quantity,
-				price: cartItem.price
-			}
-
-			order.items.push(item);
+			order.items.push(cartItem);
 			runTransaction(child(ref(rdb), 'numericals/product/'+String(cartItem.id).replace('FCPS', '')), (currentValue) => {
 					return currentValue+cartItem.quantity;
 			}).then((result) => {
@@ -160,8 +154,6 @@ async function updateOrder(db, cart, order, orderID){
 			window.localStorage.setItem('FloraCoCart', '[]');
 			showToast('Order Placed '+orderID);
 			display();
-			// off(reff);
-			// off(db);
 		})
 		.catch((error)=>{
 			console.log('Error'+error);
