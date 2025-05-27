@@ -28,6 +28,7 @@ let variation = 0;
 let product = '';
 let quantity = 0;
 let products = [];
+let filterProducts = [];
 let displayAmount = 15;
 
 function filterData(){
@@ -105,6 +106,30 @@ function populateContent(products) {
 	});
 }
 
+function filterSearch(){
+	let search = document.getElementById('search').value;
+
+	let filteredList = [];
+
+	if (search.trim() !== "") {
+		Object.values(filterProducts).forEach(product => {
+
+			if(String(Object.values(product)[0].name).toLowerCase().includes(search.toLowerCase())){
+				filteredList = filteredList.concat(Object.values(product));
+			}
+		});
+			
+		if (filteredList.length == 0) {
+			noProduct();
+		}else {
+			showData(filteredList);
+		}
+	}else{
+		showData(products);
+	}
+
+}
+
 function showData(product){
 
 	if (product) {
@@ -158,6 +183,7 @@ function populateFilter(){
 
 function filterSelected(){
 	sub = document.getElementById('filter').value;
+	document.getElementById('search').value = '';
 	display();
 }
 
@@ -195,6 +221,7 @@ function display() {
 		try{
 			let cat = data['products']['all'][category];
 			products = [];
+			filterProducts = cat;
 
 			if (category && sub && sub !== "all") {
 

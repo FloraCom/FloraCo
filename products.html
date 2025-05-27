@@ -171,11 +171,11 @@
 
 			<div class="searchView">
 				<div class="searchBar">
-					<input id="search" list="searchList" type="search" name="" value="" placeholder="Search Plants, Seeds, Soil, Fertilizers">
+					<input id="search" list="searchList" type="search" name="" value="" placeholder="Search Plants, Seeds, Soil, Fertilizers" onchange="filterSearch();">
 				  	<datalist id="searchList">
 					    <option value="">
 				  	</datalist>
-					<i class="fi fi-br-search" id="searchButton"></i>
+					<i class="fi fi-br-search" id="searchButton" onclick="filterSearch();"></i>
 				</div>
 			</div>
 			
