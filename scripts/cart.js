@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import { getDatabase, runTransaction, ref, child, get, set, update, remove, off} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 import { increase, decrease, changeQuantity, showToast, removeItem, updateSummary, applyCoupon, display, getFinalAmount } from './cartFunctions.js';
-import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, Timestamp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
 let finalAmount = 0;
 
@@ -185,8 +185,6 @@ function closeLoad(){
 	document.getElementById('loader').style.display = "none";
 }
 
-
-
 function getDateString(){
 	const now = new Date();
 
@@ -194,6 +192,33 @@ function getDateString(){
 	const month = String(now.getMonth()+1).padStart(2, "0");
 
 	return `${month}${year}`;
+}
+
+
+async function updateList(){
+
+    const date = new Date();
+    const timestampFromDate = Timestamp.fromDate(date);
+    const now = Timestamp.now();
+	const db = getFirestore(app);
+	const usersCollection = collection(db, "coupons");
+	const q = query(usersCollection, where("validity", ">=", now));
+
+	var querySnapshot = await getDocs(q);
+
+	if(querySnapshot.docs.length == 0){
+		window.localStorage.setItem('FloraCoCoupons', '[]');
+	}
+
+	let offers = [];
+
+	querySnapshot.forEach(doc => {
+
+		offers.push(doc.data());
+
+	});
+
+	window.localStorage.setItem('FloraCoCoupons', (JSON.stringify(offers)));
 }
 
 /*function getFinalAmount(){

@@ -98,14 +98,7 @@ export function updateSummary(cart){
 }
 
 export function applyCoupon(){
-	let coupons = {
-		'FLAT10': 10,
-		'IPL25': 25,
-		'CHARAN100': 100,
-		'ICE50': 50,
-		'ONE8': 18
-	};
-
+	let coupons = JSON.parse(window.localStorage.getItem('FloraCoCoupons'));
 	let couponIN = document.getElementById('coupon-input');
 	let couponStatus = document.getElementById('coupon-status');
 	let coupon = String(couponIN.value).toUpperCase();
