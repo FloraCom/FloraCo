@@ -69,7 +69,7 @@ export function updateSummary(cart){
 	document.getElementById('item-count').innerHTML = cart.length;
 
 	let total = 0;
-	let discount = 2440;
+	let discount = 0;
 
 	cart.forEach((item)=>{
 		total += (parseInt(item.quantity)*parseInt(item.price));
@@ -104,7 +104,7 @@ export function applyCoupon(){
 	let couponIN = document.getElementById('coupon-input');
 	let couponStatus = document.getElementById('coupon-status');
 	let coupon = String(couponIN.value).toUpperCase();
-	if (Object.keys(coupons).length > 0 && coupon !== "") {
+	if (coupons && coupon !== "" && coupons[coupon]) {
 		let offer  = coupons[coupon];
 
 		let final = document.getElementById('final-price');
