@@ -83,6 +83,13 @@ export function updateSummary(cart){
 	}
 
 	finalAmount = total-discount;
+
+	if (finalAmount >= 2000) {
+		document.getElementById('cod').style.display = 'none';
+	}else{
+		document.getElementById('cod').style.display = 'block';
+	}
+
 	document.getElementById('discount').innerHTML = discount;
 	document.getElementById('final-price').innerHTML = finalAmount;
 	document.getElementById('checkout').innerHTML = `Checkout (Rs.${document.getElementById('final-price').innerHTML})`;
@@ -116,6 +123,12 @@ export function applyCoupon(){
 		document.getElementById('checkout').innerHTML = `Checkout (Rs.${document.getElementById('final-price').innerHTML})`;
 		couponIN.disabled = true;
 		document.getElementById('apply').disabled = true;
+		
+		if (parseInt(finalAmount) >= 2000) {
+			document.getElementById('cod').style.display = 'none';
+		}else{
+			document.getElementById('cod').style.display = 'block';
+		}
 
 	}else{
 		couponStatus.innerHTML = 'Not Applied';
