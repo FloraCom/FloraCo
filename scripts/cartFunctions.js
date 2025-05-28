@@ -99,11 +99,14 @@ export function updateSummary(cart){
 
 export function applyCoupon(){
 	let coupons = JSON.parse(window.localStorage.getItem('FloraCoCoupons'));
+
+	// coupons = coupons ? coupons : [];
 	let couponIN = document.getElementById('coupon-input');
 	let couponStatus = document.getElementById('coupon-status');
 	let coupon = String(couponIN.value).toUpperCase();
-	let offer  = coupons[coupon];
-	if (offer) {
+	if (Object.keys(coupons).length > 0 && coupon !== "") {
+		let offer  = coupons[coupon];
+
 		let final = document.getElementById('final-price');
 		let discount = parseInt(((parseInt(finalAmount)*parseInt(offer))/100));
 		finalAmount = parseInt(finalAmount)-discount;

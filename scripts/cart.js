@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import { getDatabase, runTransaction, ref, child, get, set, update, remove, off} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 import { increase, decrease, changeQuantity, showToast, removeItem, updateSummary, applyCoupon, display, getFinalAmount } from './cartFunctions.js';
-import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, Timestamp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, collection, getDocs, addDoc, query, where, updateDoc, deleteDoc, deleteField, Timestamp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
 let finalAmount = 0;
 
@@ -195,8 +195,19 @@ function getDateString(){
 }
 
 
-async function updateList(){
+async function updateList(callBack){
 
+	const firebaseConfig = {
+	apiKey: "AIzaSyDg_cruaRr3dHWuE8Ddzxk6OXlWKE445kA",
+	authDomain: "floraco-main.firebaseapp.com",
+	projectId: "floraco-main",
+	storageBucket: "floraco-main.firebasestorage.app",
+	messagingSenderId: "675774592408",
+	appId: "1:675774592408:web:765b6016f902858bb267ed",
+	measurementId: "G-2T9X6F21LB"
+	};
+
+	var app = initializeApp(firebaseConfig);
     const date = new Date();
     const timestampFromDate = Timestamp.fromDate(date);
     const now = Timestamp.now();
@@ -207,16 +218,22 @@ async function updateList(){
 	var querySnapshot = await getDocs(q);
 
 	if(querySnapshot.docs.length == 0){
-		window.localStorage.setItem('FloraCoCoupons', '[]');
+		window.localStorage.setItem('FloraCoCoupons', '{}');
 	}
 
-	let offers = [];
+	let offers = {};
 
 	querySnapshot.forEach(doc => {
 
-		offers.push(doc.data());
+		offers[doc.data().code] = doc.data().discount;
 
 	});
+
+	if (Object.keys(offers).length > 0) {
+		callBack(true);
+	}else{
+		callBack(false);
+	}
 
 	window.localStorage.setItem('FloraCoCoupons', (JSON.stringify(offers)));
 }
@@ -256,5 +273,11 @@ document.querySelector('.headingSumm').addEventListener('click', ()=>{
 });
 
 document.getElementById('apply').addEventListener('click', ()=>{
-	applyCoupon();
+	updateList((fetched) => {
+		if (fetched) {
+			applyCoupon();
+		}else{
+			showToast('No coupons available');
+		}
+	});
 });
