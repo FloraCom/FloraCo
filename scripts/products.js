@@ -81,27 +81,29 @@ function populateContent(products) {
 		products = products.sort((a,b) => { return parseInt(b.variations[0].price) - parseInt(a.variations[0].price);});
 	}
 
+	let productsOffer = JSON.parse(window.localStorage.getItem('FloraCoOfferProducts'));
 	products.slice(0, displayAmount).forEach((obj, index) => {
 
 		let variant = obj.variations[0].id;
 		const li = document.createElement('li');
 		li.className = 'productCard';
 		li.innerHTML = `
-		<a href="product.html?category=${obj.parentCategory}&sub=${obj.subCategory}&id=${obj.id}&option=${variant}" class="cardA">
-		<div class="card">
-		<div class="cardImg">
-		<img class="cardImageView" src="${obj.variations[0].image}" onerror="src='./media/fc.png';">
-		</div>
-		<div class="cardText">
-		<p class="category">${String(obj.parentCategory).replace('-', " ")}</p>
-		<h3 class="title">${obj.name}</h3>
-		<span class="priceSpan">${parseInt(parseInt(obj.variations[0].price)+(parseInt(obj.variations[0].price)*0.1))}</span>
-		<h3 class="price">${obj.variations[0].price}</h3>
-		</div>
-		</div>
-		<button onclick="alert('${obj.name} added to cart');">Add To Cart</button>
-		</a>
-		`;
+				<a href="product.html?category=${obj.parentCategory}&sub=${obj.subCategory}&id=${obj.id}" class="cardA">
+					<div class="card">
+						<div class="cardImg">
+							<img class="cardImageView" src="${obj.variations[0].image}" onerror="this.onerror=null;this.src='./media/fc.png';">
+						</div>
+						<div class="cardText">
+							<p class="category">${obj.parentCategory}</p>
+							${isNotOfferProduct(productsOffer, obj.id) ? '' : '<p class="productOffer">'+getDiscount(productsOffer, obj.id)+'% off</p>'}
+							<h3 class="title">${obj.name}</h3>
+							<span class="priceSpan">${isNotOfferProduct(productsOffer, obj.id) ? getSpanOfferPrice(0.1, obj.variations[0].price) : obj.variations[0].price}</span>
+							<h3 class="price">${getPrice(isNotOfferProduct(productsOffer, obj.id), getDiscount(productsOffer, obj.id), obj.variations[0].price)}</h3>
+						</div>
+					</div>
+					<button>Details</button>
+				</a>
+			`;
 		content.appendChild(li);
 	});
 }
@@ -178,8 +180,43 @@ function populateFilter(){
 			filter.appendChild(option);
 		});
 	}
+}
+
+
+function getPrice(isNotOffer, productsOffer, price){
+
+	if (!isNotOffer) {
+		return Math.ceil((parseInt(price) - ((parseInt(price)*productsOffer)/100)));
+	}else{
+		return price;
+	}
 
 }
+
+function getSpanOfferPrice(productOffer, price){
+
+	if (productOffer) {
+		return Math.ceil((parseInt(price) + (parseInt(price)*productOffer)));
+	}else{
+		return price;
+	}
+
+}
+
+function getDiscount(productsOffer, id){
+
+	if (isNotOfferProduct(productsOffer, id)) {
+		return 10;
+	}else{
+		return (productsOffer[String(id)]);
+	}
+
+}
+
+function isNotOfferProduct(productsOffer, id){
+	return (productsOffer[String(id)] === undefined); 
+}
+
 
 function filterSelected(){
 	sub = document.getElementById('filter').value;

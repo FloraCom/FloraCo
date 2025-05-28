@@ -10,7 +10,7 @@ measurementId: "G-2T9X6F21LB"
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
-import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+import { getFirestore, collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 import { displayDetails } from './cartFunctions.js';
 
 window.displayDetails = displayDetails;
@@ -61,11 +61,10 @@ async function updateList(products){
 
 	let userId = window.localStorage.getItem("UserID");
 
-
   	if (userId) {
-		const db = getFirestore();
+		const db = getFirestore(app);
   		const usersCollection = collection(db, "orders");
-  		const q = query(usersCollection, where("userId", "==", userId));
+  		const q = query(usersCollection, where("userId", "==", userId), orderBy("id", "desc"));
 		var querySnapshot = await getDocs(q);
 
 		if(querySnapshot.docs.length == 0){

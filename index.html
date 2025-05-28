@@ -47,7 +47,7 @@
 				<div class="text">
 					<h2>'Rooted in Quality,<br>Grown with Love'</h2>
 					<p>We Bring Nature's Touch To Your Doorstep</p>
-					<button id="shop" onclick="shopNow();">Shop now</button>
+					<button id="shop">Shop now</button>
 				</div>
 			</div>
 			<div id="cov">
@@ -90,6 +90,16 @@
 		</div>
 
 		<hr>
+
+		<div class="carousel-container">
+		  <div class="arrow left">&#10094;</div>
+		  <div class="arrow right">&#10095;</div>
+
+		  <div class="carousel-track" id="carouselTrack">
+		  </div>
+
+		  <div class="carousel-dots" id="carouselDots"></div>
+		</div>
 
 		<h1 class="heading">Featured Products</h1>
 
@@ -230,7 +240,7 @@
 		<div class="products">
 			<ul id="productsList">
 			</ul>
-			<button id="show-more" onclick="showMore();">Show More</button>
+			<button id="show-more">Show More</button>
 		</div>
 
 		<div class="shippingDetail" id="shipp">
@@ -354,6 +364,6 @@
 
 	</footer>
 
-	<script src="scripts/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="scripts/index.js" type="module" charset="utf-8"></script>
 </body>
 </html>

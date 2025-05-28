@@ -227,6 +227,87 @@ aside{
 	background-color: var(--secondary-c);
 }
 
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-slide {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide a{
+	width: 100%;
+	height: 100%;
+}
+
+.carousel-slide a img{
+	width: 100%;
+	height: 100%;
+	object-fit: fit;
+}
+
+.carousel-slide:nth-child(1) { background: #ffa07a; }
+.carousel-slide:nth-child(2) { background: #90ee90; }
+.carousel-slide:nth-child(3) { background: #87cefa; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
 .offer{
 	width: 100%;
 	margin: 0;
@@ -458,18 +539,40 @@ aside{
   font-size: 0.7rem;
   font-weight: 600;
   color: gray;
+  margin-bottom: 10px;
   text-transform: uppercase;
+}
+
+.productOffer{
+	width: 50px;
+	padding: 2px;
+	margin: 0;
+	font-size: 0.7rem;
+	border-radius: 5px;
+	text-align: center;
+	animation:  offer 8s ease infinite;
+}
+
+
+@keyframes offer {
+  0%, 75%{ 
+  	background-color: lightgreen;
+  	color: black;
+  }
+  35%, 100%{
+  	background-color: green;
+  	color: white;
+  }
 }
 
 .title{
   margin: 0;
-  padding: 10px 0;
   font-size: 1rem;
   font-weight: 500;
   color: var(--primary-c);
   overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
             line-clamp: 2; 
 }
 

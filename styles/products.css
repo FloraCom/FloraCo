@@ -426,12 +426,34 @@ option{
   font-weight: 600;
   color: gray;
   font-family: 'Lato', sans-serif;
+  margin-bottom: 10px;
   text-transform: uppercase;
+}
+
+.productOffer{
+	width: 50px;
+	padding: 2px;
+	margin: 0;
+	font-size: 0.7rem;
+	border-radius: 5px;
+	text-align: center;
+	animation:  offer 8s ease infinite;
+}
+
+
+@keyframes offer {
+  0%, 75%{ 
+  	background-color: lightgreen;
+  	color: black;
+  }
+  35%, 100%{
+  	background-color: green;
+  	color: white;
+  }
 }
 
 .title{
   margin: 0;
-  padding: 10px 0;
   font-size: 1rem;
   font-family: 'Lato', sans-serif;
   font-weight: 600;

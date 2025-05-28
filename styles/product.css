@@ -534,24 +534,49 @@ middle{
   padding: 10px 0;
 }
 
+
 .category {
   margin: 0;
   padding: 0;
   font-size: 0.7rem;
   font-weight: 600;
   color: gray;
+  margin-bottom: 10px;
   text-transform: uppercase;
+}
+
+.productOffer{
+  width: 50px;
+  padding: 5px;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 5px;
+  text-align: center;
+  animation:  offer 8s ease infinite;
+}
+
+
+@keyframes offer {
+  0%, 75%{ 
+    background-color: lightgreen;
+    color: black;
+  }
+  35%, 100%{
+    background-color: green;
+    color: white;
+  }
 }
 
 .title{
   margin: 0;
-  padding: 10px 0;
+  margin-bottom: 10px;
   font-size: 1rem;
   font-weight: 500;
   color: var(--primary-c);
   overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
             line-clamp: 2; 
 }
 

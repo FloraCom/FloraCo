@@ -63,20 +63,40 @@ function populateContent(product) {
 		option = product.variations[variation].id;
 	}
 
-	console.log(product.variations[variation].price);
-
 	setQuantity();
 
-	price = parseInt(product.variations[variation].price);
+	let productsOffer = JSON.parse(window.localStorage.getItem('FloraCoOfferProducts'));
+	let productOffer = document.getElementById("productOffer");
+	
+	price = getPrice(isNotOfferProduct(productsOffer, product.id), getDiscount(productsOffer, product.id), product.variations[variation].price);
+
 
 	document.title = 'FloraCo • '+product.name;
-
 	document.getElementById("prdImg").src = product.variations[variation].image;
 	document.getElementById("title").innerHTML = product.name;
 	document.getElementById("prdPrice").innerHTML = price;
-	document.getElementById("discountPrice").innerHTML = parseInt(price+(price*0.1));
+	document.getElementById("discountPrice").innerHTML = isNotOfferProduct(productsOffer, product.id) ? getSpanOfferPrice(0.1, product.variations[variation].price) : product.variations[variation].price;
 	document.getElementById("availability").innerHTML = (product.variations[variation].stock) ? 'Available In Stock' : 'Out Of Stock';
 	document.getElementById("description").innerHTML = (product.description);
+	
+
+	if(isNotOfferProduct(productsOffer, product.id)){
+		productOffer.style.display = 'none';
+	} else {
+		productOffer.style.display = 'block';
+		productOffer.innerHTML = getDiscount(productsOffer, product.id)+'% off';
+	}
+
+	if (product.variations[variation].stock) {
+		document.getElementById('addCart').innerHTML = 'Add to Cart';
+		document.getElementById('addCart').disabled = false;
+		document.getElementById('qtyControl').style.display = 'flex';
+	}else{
+		document.getElementById('addCart').innerHTML = 'Out Of Stock';
+		document.getElementById('addCart').disabled = true;
+		document.getElementById('qtyControl').style.display = 'none';
+	}
+
 	let variations = document.getElementById("variations");
 	variations.innerHTML = '';
 	(product.variations).forEach((vari, index) => {
@@ -96,6 +116,42 @@ function populateContent(product) {
 		variations.appendChild(label);
 	});
 }
+
+
+function getPrice(isNotOffer, productsOffer, price){
+
+	if (!isNotOffer) {
+		return Math.ceil((parseInt(price) - ((parseInt(price)*productsOffer)/100)));
+	}else{
+		return price;
+	}
+
+}
+
+function getSpanOfferPrice(productOffer, price){
+
+	if (productOffer) {
+		return Math.ceil((parseInt(price) + (parseInt(price)*productOffer)));
+	}else{
+		return price;
+	}
+
+}
+
+function getDiscount(productsOffer, id){
+
+	if (isNotOfferProduct(productsOffer, id)) {
+		return 10;
+	}else{
+		return (productsOffer[String(id)]);
+	}
+
+}
+
+function isNotOfferProduct(productsOffer, id){
+	return (productsOffer[String(id)] === undefined); 
+}
+
 
 function showData(product){
 
