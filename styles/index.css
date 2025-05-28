@@ -561,12 +561,33 @@ aside{
 }
 
 footer{
-	background-color: var(--primary-c);
+	background-color: var(--background-c);
   	font-family: 'Lato', sans-serif;
 	padding: 25px 10px;
+	display: block;
+}
+
+.footerDetails{
+	width: 100%;
 	display: flex;
-	justify-content: space-around;
-	gap: 10px;
+	padding: 10px 0;
+	justify-content: center;
+	gap: 10%;
+	margin-bottom: 20px;
+}
+
+.footerLogo{
+	padding: 25px 10px;
+}
+
+.footerLogo img{
+	height: 50px;
+}
+
+.footerLinks{
+	display: flex;
+	gap: 30px;
+	justify-content: start;
 }
 
 .social{
@@ -578,63 +599,40 @@ footer{
 	justify-content: start;
 }
 
-.social h4{
+.social p{
 	margin: 0;
 	padding: 0;
 	pointer-events: none;
-	color: white;
+	color: var(--primary-c);
 	font-weight: 800;
 	font-size: 1.1rem;
 }
 
-.social a{
+.social a, .footerEnd a{
 	font-weight: 600;
-}
-
-.social a i{
-	color: white;
-	font-size: 1.5rem;
-	font-weight: 600;
-}
-
-.profiles{
-	display: flex;
-	gap: 15px;
-	justify-content: start;
-	padding: 0;
-	margin: 0;
-}
-
-.profile a{
 	text-decoration: none;
-	color: gray;
-	font-size: 1.3rem;
+	color: var(--primary-c);
 }
 
-.contact{
-	padding: 10px 0;
-	gap: 20px;
+.social a:hover{
+	text-decoration: underline;
 }
 
-.contact h4{
-	margin: 0;
-	padding: 0;
-	font-weight: 800;
-	font-size: 1.1rem;
-	pointer-events: none;
+ .footerEnd a:hover{
+	text-decoration: underline;
 }
 
-.contact p{
-	font-weight: 600;
-	color: lightgrey;
-	font-size: 1rem;
-	margin: 0;
-	padding: 0;
+.footerEnd{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10%;
 }
 
-.contact a{
-	color: lightgray;
-	font-size: 1rem;
+.documents{
+	display: flex;
+	gap: 10px;
 }
 
 .built{
@@ -652,11 +650,11 @@ footer{
 	font-size: 4rem;
 	margin: 0;
 	padding: 0;
-	color: lightgray;
+	color: #cccccc9f;
 }
 
 .builtText{
-	color: lightgrey;
+	color: #cccccc9f;
 	font-weight: 800;
 	display: flex;
 	font-family: 'Lato', sans-serif;
@@ -671,7 +669,6 @@ footer{
 	font-style: normal;
 	padding: 0 5px;
 }
-
 
 
 @media screen and (max-width: 870px){
@@ -740,11 +737,31 @@ footer{
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	footer{
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+}
+
+
+@media screen and (max-width: 550px) {
+
+  .footerDetails{
+  	flex-direction: column;
+  	align-items: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  .footerLinks{
+  	flex-direction: column;
+  	align-items: center;
+  }
+  .social{
+  	align-items: center;
+  }
+
+  .footerEnd{
+  	flex-direction: column;
+  }
+
 }
 
 

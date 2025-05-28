@@ -191,7 +191,13 @@ function reauthWithGoogle() {
 	});
 }
 
-updateFields();
+
+if (window.localStorage.getItem("FloraCoUserLogIn") === "true") {
+	updateFields();
+}else{
+	window.location.replace('login.html');
+}
+
 
 document.getElementById('deleteAccount').addEventListener('click', ()=>deleteAccount());
 

@@ -645,13 +645,33 @@ middle{
 }
 
 footer{
-  width: 100%;
-  background-color: black;
-  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-c);
+    font-family: 'Lato', sans-serif;
   padding: 25px 10px;
+  display: block;
+}
+
+.footerDetails{
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  gap: 10px;
+  padding: 10px 0;
+  justify-content: center;
+  gap: 10%;
+  margin-bottom: 20px;
+}
+
+.footerLogo{
+  padding: 25px 10px;
+}
+
+.footerLogo img{
+  height: 50px;
+}
+
+.footerLinks{
+  display: flex;
+  gap: 30px;
+  justify-content: start;
 }
 
 .social{
@@ -663,90 +683,104 @@ footer{
   justify-content: start;
 }
 
-.social h4{
+.social p{
   margin: 0;
   padding: 0;
   pointer-events: none;
-  color: white;
-  font-weight: 500;
+  color: var(--primary-c);
+  font-weight: 800;
+  font-size: 1.1rem;
 }
 
-.social a{
+.social a, .footerEnd a{
   font-weight: 600;
-}
-
-.social a i{
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.profiles{
-  display: flex;
-  gap: 15px;
-  justify-content: start;
-  padding: 0;
-  margin: 0;
-}
-
-.profile a{
   text-decoration: none;
-  color: gray;
-  font-size: 1.3rem;
+  color: var(--primary-c);
 }
 
-.contact{
-  padding: 10px 0;
-  gap: 20px;
+.social a:hover{
+  text-decoration: underline;
 }
 
-.contact h4{
-  margin: 0;
-  padding: 0;
-  pointer-events: none;
+ .footerEnd a:hover{
+  text-decoration: underline;
 }
 
-.contact p{
-  font-weight: 600;
-  color: lightgrey;
-  font-size: 0.9rem;
-  margin: 0;
-  padding: 0;
+.footerEnd{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
 }
 
-.contact a{
-  color: gray;
-  font-size: 1rem;
+.documents{
+  display: flex;
+  gap: 10px;
 }
+
 
 .built{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-c);
+  align-items: center;
   padding: 25px;
+  border-bottom: 1px solid lightgray;
 }
 
 .built h1{
-  font-family: "Bowlby One", sans-serif;
-  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
   font-style: normal;
-  font-size: 2.5rem;
+  font-size: 4rem;
   margin: 0;
   padding: 0;
-  color: white;
+  color: #bbbbbb9f;
 }
 
 .builtText{
-  color: lightgrey;
-  font-weight: 600;
+  color: #bbbbbb9f;
+  font-weight: 800;
   display: flex;
+  font-family: 'Lato', sans-serif;
   gap: 5px;
-  align-items: center;
+  align-items: end;
 }
 
 .builtText i{
-  color: red;
-  font-size: 1.5rem;
+  color: deeppink;
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-style: normal;
+  padding: 0 5px;
 }
 
 
+@media screen and (max-width: 550px) {
+
+  .footerDetails{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  .footerLinks{
+    flex-direction: column;
+    align-items: center;
+  }
+  .social{
+    align-items: center;
+  }
+
+  .footerEnd{
+    flex-direction: column;
+  }
+
+}
 
 @media screen and (max-width: 1100px) {
 
@@ -816,12 +850,6 @@ footer{
   .right{
     width: 100%;
     padding: 0;
-  }
-
-  footer{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   .built h1{

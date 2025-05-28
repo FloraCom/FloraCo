@@ -17,31 +17,42 @@ window.displayDetails = displayDetails;
 
 var app = initializeApp(firebaseConfig);
 
-try{
-	fetch("./assets/products.json")
-	.then((res) => {if (!res.ok) {} return res.json();})
-	.then((products) => {
 
-		if (window.localStorage.getItem('FloraCoUserLogIn') === "true") {
-			
-			try{
-				updateList(products['products']['all']);
-			}catch(error){
+if (window.localStorage.getItem("FloraCoUserLogIn") === "true") {
+
+	try{
+		fetch("./assets/products.json")
+		.then((res) => {if (!res.ok) {} return res.json();})
+		.then((products) => {
+
+			if (window.localStorage.getItem('FloraCoUserLogIn') === "true") {
+				
+				try{
+					updateList(products['products']['all']);
+				}catch(error){
+					noProduct();
+				}
+			}else{
 				noProduct();
+				window.location.replace("login.html");
 			}
-		}else{
-			noProduct();
-			window.location.replace("login.html");
-		}
 
-	}).catch((error)=>{
+		}).catch((error)=>{
+			console.log(error);
+			noProduct();
+		});
+	}catch (error) {
 		console.log(error);
 		noProduct();
-	});
-}catch (error) {
-	console.log(error);
-	noProduct();
+	}
+
+
+}else{
+	window.location.replace('login.html');
 }
+
+
+
 
 async function updateList(products){
 

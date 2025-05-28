@@ -69,6 +69,8 @@ function populateContent(product) {
 
 	price = parseInt(product.variations[variation].price);
 
+	document.title = 'FloraCo • '+product.name;
+
 	document.getElementById("prdImg").src = product.variations[variation].image;
 	document.getElementById("title").innerHTML = product.name;
 	document.getElementById("prdPrice").innerHTML = price;
