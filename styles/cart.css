@@ -939,6 +939,11 @@ footer{
 
 
 @media screen and (max-width: 500px){
+  
+  #logo{
+    height: 50%;
+  }
+
   .product-name{
     font-size: 0.8rem;
   }
