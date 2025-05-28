@@ -18,8 +18,6 @@ display();
 
 function checkout(){
 
-	// document.getElementById('loader').style.display = "flex";
-
 	const selectedRadio = document.querySelector('input[name="payment"]:checked');
 	const selectedValue2 = selectedRadio ? selectedRadio.value : undefined;
 
@@ -83,10 +81,12 @@ function uploadOrder(){
 }
 
 async function updateOrderNo(date, rdb, db){
+
+	openLoad();
+
 	runTransaction(child(ref(rdb), 'numericals/orderNo'), (currentValue) => {
 			return currentValue+1;
 	}).then((result) => {
-		console.log();
 
 		let orderID = 'FCOR'+String(result.snapshot.val()).padStart(5, '0');
 
@@ -103,13 +103,16 @@ async function updateOrderNo(date, rdb, db){
 				off(ref(rdb));
 			}).catch(err => {
 				console.log(err);
+				closeLoad();
 			});
 		}).catch(err => {
 			console.log(err);
+			closeLoad();
 		});	
 
 	}).catch((err)=>{
 		console.log(err);
+		closeLoad();
 	});
 }
 
@@ -128,7 +131,7 @@ async function updateProduct(rdb, db, orderID){
 			placed: String(new Date().getTime()),
 			address: address,
 			cost: getFinalAmount(),
-			status: false
+			status: 0
 		};
 
 		cart.forEach((cartItem, index)=>{
@@ -139,6 +142,7 @@ async function updateProduct(rdb, db, orderID){
 			}).then((result) => {
 				off(child(ref(rdb), 'numericals/product/'+String(cartItem.id).replace('FCPS', '')));
 			}).catch(err => {
+				closeLoad();
 				console.log(err);
 			});	
 		});
@@ -156,18 +160,32 @@ async function updateOrder(db, cart, order, orderID){
 		const docRef = setDoc(reff, order)
 		.then(()=>{
 			window.localStorage.setItem('FloraCoCart', '[]');
-			showToast('Order Placed '+orderID);
-			// document.getElementById('loader').style.display = "none";
+			document.getElementById('ordID').innerHTML = orderID;
+			openLoad();
 			display();
 		})
 		.catch((error)=>{
 			console.log('Error'+error);
+			closeLoad();
 		});
 	}else{
 		showToast('Order not placed');
+		closeLoad();
 	}
 
 }
+
+function openLoad(){
+	document.getElementById('loader').classList.toggle('openLoader');
+	document.getElementById('loader').style.display = "flex";
+}
+
+function closeLoad(){
+	document.getElementById('loader').classList.toggle('openLoader');
+	document.getElementById('loader').style.display = "none";
+}
+
+
 
 function getDateString(){
 	const now = new Date();

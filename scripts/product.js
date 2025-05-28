@@ -217,17 +217,26 @@ function addToCart(){
 			obj.quantity = parseInt(obj.quantity) + quantity;
 			jsonData[indexVal] = obj;
 		}
-
-
-
-		console.log(cartItem);
-
-		showToast(cartItem.name+' added to cart');
+		showLoad(cartItem);
 		window.localStorage.setItem('FloraCoCart', JSON.stringify(jsonData));
 	}else{
 		document.getElementById('promptQuantity').innerHTML = 'Quantity must be atleast 1';
 	}
 	
+}
+
+function showLoad(cartItem){
+	document.getElementById('addCart').style.display = 'none';
+	document.getElementById('addToCartLoader').style.display = 'flex';
+	setTimeout(function() {
+		hideLoad(cartItem);
+	}, 500);
+}
+
+function hideLoad(cartItem){
+	showToast(cartItem.name+' added to cart');
+	document.getElementById('addCart').style.display = 'block';
+	document.getElementById('addToCartLoader').style.display = 'none';
 }
 
 function showToast(message) {

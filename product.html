@@ -98,7 +98,12 @@
           <button type="button" class="qty-btn" id="increase" onclick="increase();">+</button>
         </div>
         <p id="promptQuantity" style="color: red;"></p>
-        <button type="submit" class="add-cart" onclick="addToCart();">Add to Cart</button>
+        <button id="addCart" type="submit" class="add-cart" onclick="addToCart();">Add to Cart</button>
+        <div id="addToCartLoader">
+          <div class="addcartload">
+            <div class="custom-loader"></div>
+          </div>
+        </div>
       </div>
     </div>
   </middle>

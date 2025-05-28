@@ -718,34 +718,123 @@ footer{
   padding: 0 5px;
 }
 
+.load{
+  opacity: 0;
+  display: none;
+  animation: fadeOut 1s ease-in;
+}
+
+.load.openLoader{
+  opacity: 1;
+  display: flex;
+  animation: fadeIn 1s ease-in; 
+}
 
 #loader{
   width: 100%;
   height: 100%;
-  background-color: var(--background-c);
+  background-color: #000;
   position: absolute;
+  top: 0;
   pointer-events: none;
   display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 4;
 }
 
-#loader img{
-  width: 200px;
-  transform: scale(1);
-  transform: translate(0, -50%);
-  transition: load ease infinite;
+#loader p{
+  margin: 0;
+  color: white;
+  padding: 0 15px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
-@keyframes load{
-  from{
-    transform: scale(1);
+#loader h1{
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.loader {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  margin-top: 20px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(orange, orange),
+  linear-gradient(gray, gray), linear-gradient(lightgray, lightgray);
+  background-size: 70% 100%, 3% 40%, 19% 75%;
+  background-position: 0 0, 80px 15px, 70px 7px;
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  border-radius:50%;
+  background:radial-gradient(farthest-side at bottom, yellow ,#0000);
+  -webkit-mask:conic-gradient(from -35deg at bottom,#0000, #000 1deg 60deg, #0000 61deg);
+  left: 25%;
+  bottom: -25%;
+  transform: rotateZ(90deg);
+  z-index: -1;
+  width: 150px;
+  height: 70px;
+  /* border-radius: 50%; */
+  /* box-sizing: content-box; */
+  /* border: 5px solid #000; */
+  /* box-shadow: 60px 0 0 -5px #fff, 60px 0 #000; */
+  /* animation: wheelSk 0.75s ease-in infinite alternate; */
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  height: 50px;
+  width: 50px;
+  background-image: linear-gradient(#eee 40px, #eee 40px), linear-gradient(#ccc 40px, #ccc 40px);
+  background-repeat: no-repeat;
+  background-size: 30px 5px;
+  animation: lineDropping 1s linear infinite;
+}
+
+@keyframes wheelSk {
+  0%, 50%, 100% { transform: translateY(0) }
+  30%, 90% { transform: translateY(-3px) }
+}
+
+@keyframes fadeIn {
+  0%{ 
+    opacity: 0;
   }
-  to{
-    transform: scale(1.3);
+  100%{
+    opacity: 1;
   }
 }
 
+@keyframes fadeOut {
+  0%{ 
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes lineDropping {
+  0% {
+    background-position: 100px 20px, 150px 20px;
+    opacity: 1;
+  }
+  50% { background-position: 0px 20px, 50px 20px}
+  60% { background-position: -30px 20px, 20px 20px}
+  75%, 100% {
+    background-position: -70px 20px, -30px 20px;
+    opacity: 1;
+  }
+}
 
 
 
