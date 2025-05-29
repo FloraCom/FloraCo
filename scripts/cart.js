@@ -16,10 +16,45 @@ window.updateSummary = updateSummary;
 let address = {};
 display();
 
+let cFetched = false;
+let modeOfPayment = "2";
+
+/*
+
+var options = {
+    "key": "rzp_test_ODWUFUWozm48C8", // Enter the Key ID generated from the Dashboard
+    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise or INR 500.
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Ecommerce",
+    "image": "image",
+    "order_id": "order_9A33Xtm",//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order). Refer the Checkout form table given below
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "note value"
+    },
+    "theme": {
+        "color": "#EA5B29"
+    }
+};
+
+
+
+	var rzp1 = new window.Razorpay(options);
+	rzp1.open();
+*/
+
 function checkout(){
 
 	const selectedRadio = document.querySelector('input[name="payment"]:checked');
-	const selectedValue2 = selectedRadio ? selectedRadio.value : undefined;
+	modeOfPayment = selectedRadio ? selectedRadio.value : undefined;
 
 	let name = String(document.getElementById('name').value);
 	let phone = String(document.getElementById('phone').value);
@@ -45,11 +80,20 @@ function checkout(){
 
 		window.localStorage.setItem(userId+'address', JSON.stringify(address));
 
-		if (selectedValue2 === undefined) {
+		if (modeOfPayment === undefined) {
 			showToast('Select Payment Method');
 		}else{
-			uploadOrder();
+
+
+			if (modeOfPayment === "2") {
+				uploadOrder();
+			}else{
+
+				uploadOrder();
+			}
+
 		}
+
 	}else{
 		showToast('Fill the (*) fields and cross check');
 	}
@@ -58,13 +102,13 @@ function checkout(){
 function uploadOrder(){
 
 	const firebaseConfig = {
-	apiKey: "AIzaSyDg_cruaRr3dHWuE8Ddzxk6OXlWKE445kA",
-	authDomain: "floraco-main.firebaseapp.com",
-	projectId: "floraco-main",
-	storageBucket: "floraco-main.firebasestorage.app",
-	messagingSenderId: "675774592408",
-	appId: "1:675774592408:web:765b6016f902858bb267ed",
-	measurementId: "G-2T9X6F21LB"
+		apiKey: "AIzaSyDg_cruaRr3dHWuE8Ddzxk6OXlWKE445kA",
+		authDomain: "floraco-main.firebaseapp.com",
+		projectId: "floraco-main",
+		storageBucket: "floraco-main.firebasestorage.app",
+		messagingSenderId: "675774592408",
+		appId: "1:675774592408:web:765b6016f902858bb267ed",
+		measurementId: "G-2T9X6F21LB"
 	};
 
 	var app = initializeApp(firebaseConfig);
@@ -131,6 +175,8 @@ async function updateProduct(rdb, db, orderID){
 			placed: String(new Date().getTime()),
 			address: address,
 			cost: getFinalAmount(),
+			paymentRef: '',
+			mode: modeOfPayment,
 			status: 0
 		};
 
@@ -172,7 +218,6 @@ async function updateOrder(db, cart, order, orderID){
 		showToast('Order not placed');
 		closeLoad();
 	}
-
 }
 
 function openLoad(){
@@ -193,7 +238,6 @@ function getDateString(){
 
 	return `${month}${year}`;
 }
-
 
 async function updateList(callBack){
 
@@ -272,12 +316,19 @@ document.querySelector('.headingSumm').addEventListener('click', ()=>{
 	}
 });
 
+updateList((fetched) => {
+	cFetched = fetched;
+});
+
 document.getElementById('apply').addEventListener('click', ()=>{
-	updateList((fetched) => {
-		if (fetched) {
-			applyCoupon();
-		}else{
-			showToast('No coupons available');
-		}
-	});
+	
+	if (cFetched) {
+		applyCoupon();
+	}else{
+		updateList((fetched) => {
+			cFetched = fetched;
+		});		
+		showToast('No coupons available');
+	}
+
 });

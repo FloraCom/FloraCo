@@ -97,7 +97,7 @@ function appendOrder(products, ordersDoc, order) {
         <div class="orderContent">
           <div class="orderHead">
             <h2 class="orderId">${order.id} (${(order.items.length)} items)</h2>
-            <p class="status ${(order.status===2) ? "delivered" : "pending"}"> • ${order.status ? "Delivered" : "Pending"}</p>
+            <p class="status ${(order.mode==="2") ? "pending" : "delivered"}"> • ${(order.mode === "2") ? "COD" : "PAID"}</p>
           </div>
           ${getList(products, order)}
           <div class="final">

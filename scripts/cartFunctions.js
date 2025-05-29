@@ -127,7 +127,13 @@ export function applyCoupon(){
 		}
 
 	}else{
-		couponStatus.innerHTML = 'Not Applied';
+
+		if (coupon === "") {
+			couponStatus.innerHTML = 'Not Applied';
+		}else{
+			couponStatus.innerHTML = 'Invalid Coupon';
+		}
+
 		couponStatus.style.color = 'red';
 	}
 }

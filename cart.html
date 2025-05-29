@@ -114,15 +114,15 @@
             <h3>Payment Method</h3>
             <div class="payment-options">
               <label>
-                <input type="radio" name="payment" />
+                <input type="radio" name="payment" value="0" />
                 <img src="./media/card.png" alt="Card" class="payment-icon" />
               </label>
               <label>
-                <input type="radio" name="payment" />
+                <input type="radio" name="payment" value="1" />
                 <img src="./media/upi.png" alt="UPI" class="payment-icon" />
               </label>
               <label id="cod">
-                <input type="radio" name="payment" />
+                <input type="radio" name="payment" value="2" />
                 <img src="./media/cod.png" alt="COD" class="payment-icon" />
               </label>
             </div>
@@ -201,6 +201,7 @@
       <span class="loader"></span>
   </div>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="scripts/cart.js" type="module" charset="utf-8" async defer></script>
 
 </body>
