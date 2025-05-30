@@ -741,7 +741,6 @@ footer{
   background-color: #000;
   position: absolute;
   top: 0;
-  pointer-events: none;
   display: none;
   flex-direction: column;
   justify-content: center;
