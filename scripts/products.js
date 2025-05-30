@@ -1,9 +1,44 @@
+const firebaseConfig = {
+apiKey: "AIzaSyDg_cruaRr3dHWuE8Ddzxk6OXlWKE445kA",
+authDomain: "floraco-main.firebaseapp.com",
+projectId: "floraco-main",
+storageBucket: "floraco-main.firebasestorage.app",
+messagingSenderId: "675774592408",
+appId: "1:675774592408:web:765b6016f902858bb267ed",
+measurementId: "G-2T9X6F21LB"
+};
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+import { getFirestore, collection, query, where, getDocs, Timestamp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+var app = initializeApp(firebaseConfig);
+
 document.getElementById('menu').addEventListener('click', ()=>{
 	document.getElementById('asideMenu').classList.toggle('asideOpen');
 });
 
 document.getElementById('close').addEventListener('click', ()=>{
 	document.getElementById('asideMenu').classList.toggle('asideOpen');
+});
+
+document.getElementById('show-more').addEventListener('click', ()=>{
+	showMore();
+});
+
+document.getElementById('filter').addEventListener('change', ()=>{
+	filterSelected();
+});
+
+document.getElementById('sort').addEventListener('change', ()=>{
+	display();
+});
+
+document.getElementById('searchButton').addEventListener('click', ()=> filterSearch());
+document.getElementById('search').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault(); 
+    filterSearch();
+  }
 });
 
 const categories = {
@@ -30,6 +65,58 @@ let quantity = 0;
 let products = [];
 let filterProducts = [];
 let displayAmount = 15;
+
+async function setUpProductList(){
+
+	let productsOffer = {};
+
+	let offers = JSON.parse(window.localStorage.getItem('FloraCoOffers'));
+
+	offers.forEach((offer) => {
+
+		if (offer.items.length > 0) {
+
+			(offer.items).forEach(item => {
+				if (productsOffer[item]) {
+					productsOffer[item] += offer.discount;
+				}else{
+					productsOffer[item] = offer.discount;
+				}
+			});
+
+		}
+	});
+
+	window.localStorage.setItem('FloraCoOfferProducts', JSON.stringify(productsOffer));
+}
+
+async function updateList(){
+
+    const date = new Date();
+    const timestampFromDate = Timestamp.fromDate(date);
+    const now = Timestamp.now();
+	const db = getFirestore(app);
+	const usersCollection = collection(db, "offers");
+	const q = query(usersCollection, where("validity", ">=", now));
+
+	var querySnapshot = await getDocs(q);
+
+	if(querySnapshot.docs.length == 0){
+		window.localStorage.setItem('FloraCoOffers', '[]');
+	}
+
+	let offers = [];
+
+	querySnapshot.forEach(doc => {
+
+		offers.push(doc.data());
+
+	});
+
+	window.localStorage.setItem('FloraCoOffers', (JSON.stringify(offers)));
+	setUpProductList();
+	display();
+}
 
 function filterData(){
 	const arr = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }, { id: 3, name: 'Charlie' }];
@@ -194,13 +281,11 @@ function getPrice(isNotOffer, productsOffer, price){
 }
 
 function getSpanOfferPrice(productOffer, price){
-
 	if (productOffer) {
 		return Math.ceil((parseInt(price) + (parseInt(price)*productOffer)));
 	}else{
 		return price;
 	}
-
 }
 
 function getDiscount(productsOffer, id){
@@ -250,6 +335,7 @@ function setHeading(){
 function display() {
 
 	setHeading();
+	setUpProductList(); 
 
 	fetch("./assets/products.json")
 	.then((res) => {if (!res.ok) {} return res.json();})
@@ -312,4 +398,4 @@ populateFilter();
 
 document.getElementById('sort').value = "2";
 
-display();
+updateList();

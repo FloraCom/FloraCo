@@ -53,7 +53,6 @@ document.getElementById('show-more').addEventListener('click', ()=>{
 	showMore();
 });
 
-
 display();
 
 async function setUpProductList(){
@@ -76,7 +75,6 @@ async function setUpProductList(){
 
 		}
 	});
-
 
 	window.localStorage.setItem('FloraCoOfferProducts', JSON.stringify(productsOffer));
 }
