@@ -138,7 +138,7 @@ async function updateOrderNo(date, rdb, db){
 				return currentValue+1;
 		}).then((result) => {
 			runTransaction(child(ref(rdb), 'numericals/sales/'+date), (currentValue) => {
-					return currentValue+1;
+					return currentValue+getFinalAmount();
 			}).then((result) => {
 				updateProduct(rdb, db, orderID);
 				off(child(ref(rdb), 'numericals/sales/'+date));

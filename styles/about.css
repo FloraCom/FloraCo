@@ -264,41 +264,41 @@ footer{
 	gap: 10px;
 }
 
-
 .built{
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 25px;
-	border-bottom: 1px solid lightgray;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  background-color: var(--background-c);
+  border-bottom: 1px solid lightgray;
 }
 
 .built h1{
-	font-family: "Lato", sans-serif;
-	font-weight: 800;
-	font-style: normal;
-	font-size: 4rem;
-	margin: 0;
-	padding: 0;
-	color: #bbbbbb9f;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+  color: #bbbbbb9f;
 }
 
 .builtText{
-	color: #bbbbbb9f;
-	font-weight: 800;
-	display: flex;
-	font-family: 'Lato', sans-serif;
-	gap: 5px;
-	align-items: end;
+  color: #bbbbbb9f;
+  font-weight: 800;
+  display: flex;
+  font-family: 'Lato', sans-serif;
+  gap: 5px;
+  align-items: end;
 }
 
 .builtText i{
-	color: deeppink;
-	font-size: 1.2rem;
-	font-weight: 800;
-	font-style: normal;
-	padding: 0 5px;
+  color: deeppink;
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-style: normal;
+  padding: 0 5px;
 }
 
 
@@ -344,4 +344,82 @@ footer{
 		display: block;
 	}
 
+}
+
+
+@media screen and (max-width: 800px){
+
+	.nav_list, #user, #cart{
+		display: none;
+	}
+
+	#menu{
+		display: block;
+	}
+
+	.categories{
+		overflow-x: scroll;
+		justify-content: start;
+	}
+
+	.categories ul{
+		flex-wrap: nowrap;
+	}
+
+	.error img{
+		width: 50%;
+	}
+
+	.built h1{
+		font-size: 1.5rem;
+	}
+
+	.builtText{
+		color: lightgrey;
+		font-weight: 600;
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		font-size: 0.8rem;
+
+	}
+
+	.builtText i{
+		color: red;
+		font-size: 1rem;
+	}
+
+	.shipping {
+		height: auto;
+	}
+
+}
+
+
+@media screen and (max-width: 500px){
+
+	#logo{
+		height: 50%;
+	}
+
+	.drop i{
+		display: none;
+	}
+
+	.built{
+		margin: 0;
+		padding: 30px 0;
+	}
+
+	.built h1{
+		font-size: 3rem;
+	}
+
+	.builtText{
+		font-size: 0.9rem;
+	}
+
+	.builtText i{
+		font-size: 1rem;
+	}
 }
