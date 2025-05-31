@@ -207,8 +207,8 @@ async function updateOrder(db, cart, order, orderID){
 		.then(()=>{
 			window.localStorage.setItem('FloraCoCart', '[]');
 			document.getElementById('ordID').innerHTML = orderID;
-			openLoad();
 			display();
+			closeLoad();
 		})
 		.catch((error)=>{
 			console.log('Error'+error);
@@ -226,8 +226,8 @@ function openLoad(){
 }
 
 function closeLoad(){
-	document.getElementById('loader').classList.toggle('openLoader');
 	document.getElementById('loader').style.display = "none";
+	document.getElementById('loader').classList.toggle('openLoader');
 }
 
 function getDateString(){
