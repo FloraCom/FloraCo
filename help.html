@@ -67,7 +67,7 @@
     <div class="right">
       <div class="rightContent">
         <h1>Help Center</h1>
-        <p class="description">This redirects you to gmail with the following content</p>
+        <p class="description">Tell us your issues, problems, experience anything. We appreciate your patience and solve your issues. We'll get back to you via email</p>
         <form id="contactForm">
 
           <div class="form-group">
@@ -77,13 +77,25 @@
 
           <div class="form-group">
             <label for="email">Your Email:</label><br>
-            <input type="email" id="email" required><br><br>            
+            <input type="email" id="email" required><br><br>     
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Issue:</label><br>
+            <select id="mode">
+              <option value="Issue">Issue</option>
+              <option value="Report">Report</option>
+              <option value="Review">Review</option>
+              <option value="Complaint">Complaint</option>
+              <option value="Other">Other</option>
+            </select><br><br>
           </div>
 
           <div class="form-group">
             <label for="subject">Subject:</label><br>
             <input type="text" id="subject" required><br><br>
           </div>
+
 
           <div class="form-group">
             <label for="message">Message:</label><br>
@@ -92,9 +104,9 @@
 
           <button type="submit" class="send-button" id="send">
             <span class="gmail-icon">
-              <img src="media/gmail.png" alt="Gmail Icon">
+              <img src="media/fc.png" alt="Floraco Icon">
             </span>
-            Send via Gmail
+            Send To FloraCo
           </button>
 
         </form>

@@ -268,10 +268,12 @@ async function updateList(callBack){
 	let offers = {};
 
 	querySnapshot.forEach(doc => {
+	console.log(doc.data());
 
 		offers[doc.data().code] = doc.data().discount;
 
 	});
+
 
 	if (Object.keys(offers).length > 0) {
 		callBack(true);

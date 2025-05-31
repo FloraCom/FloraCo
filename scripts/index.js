@@ -53,8 +53,6 @@ document.getElementById('show-more').addEventListener('click', ()=>{
 	showMore();
 });
 
-display();
-
 async function setUpProductList(){
 
 	let productsOffer = {};
@@ -157,6 +155,11 @@ function getOffers(){
 		});
 	  	// startInterval();
 	}
+
+	console.log(offers);
+
+
+	display();
 }
 
 async function updateList(){
